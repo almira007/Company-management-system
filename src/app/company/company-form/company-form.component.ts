@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -10,6 +11,8 @@ export class CompanyFormComponent implements OnInit {
 
   public isAddMode: boolean;
   private id!: string;
+
+  // public companyForm: FormGroup;
 
   constructor(
     private route: ActivatedRoute) 
