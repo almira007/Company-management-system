@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-company-form',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompanyFormComponent implements OnInit {
 
-  constructor() { }
+  public isAddMode: boolean;
+  private id!: string;
+
+  constructor(
+    private route: ActivatedRoute) 
+    { 
+    this.isAddMode = true;
+
+  }
 
   ngOnInit(): void {
+    this.id = this.route.snapshot.params['id'];
+    this.isAddMode = !this.id;
   }
 
 }
