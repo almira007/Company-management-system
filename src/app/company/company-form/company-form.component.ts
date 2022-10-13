@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { company } from '../model/company.model';
+import { CompanyService } from '../service/company.service';
 
 @Component({
   selector: 'app-company-form',
@@ -10,6 +11,7 @@ import { company } from '../model/company.model';
 })
 export class CompanyFormComponent implements OnInit {
 
+  public add!: company;
   public isAddMode: boolean;
   private id!: string;
 
@@ -19,7 +21,8 @@ export class CompanyFormComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private fb: FormBuilder) 
+    private fb: FormBuilder,
+    private companyService: CompanyService) 
     { 
     this.isAddMode = true;
     this.isSubmitted = false
@@ -44,6 +47,25 @@ export class CompanyFormComponent implements OnInit {
  
   public saveCompany(): void{
     this.isSubmitted = true;
-
+    if(this.companyForm.valid){
+      this.isSubmitted = false;
+      if(this.companyForm.value.id){
+        console.log(this.companyForm)
+      }
+      else{
+        this.addCompany();
+      }
+      this.resetCompany();
+    }
+  }
+  
+  
+  public resetCompany(): void {
+    this.isSubmitted = false;
+    this.companyForm.reset();
+  }
+  public addCompany(): void {
+    this.companyService.addCompany(this.companyForm.value).subscribe(response => {
+    });
   }
 }

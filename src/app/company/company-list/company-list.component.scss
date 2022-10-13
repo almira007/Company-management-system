@@ -5,3 +5,12 @@
     align-items: center;
     justify-content: center;
 }
+table{
+    tr{
+        border: 1px solid green;
+        height: 50px;
+    }
+    .cursor{
+        cursor: pointer;
+    }
+}

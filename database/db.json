@@ -1,3 +1,44 @@
 {
-    "company":[]
+  "company": [
+    {
+      "id": 1,
+      "companyname": "1Rivet"
+    },
+    {
+      "id": 3,
+      "companyname": "almira",
+      "companydescription": "ssss",
+      "selecttag": "1"
+    },
+    {
+      "id": 4,
+      "companyname": "ayush",
+      "companydescription": "sass",
+      "selecttag": "1"
+    },
+    {
+      "id": 5,
+      "companyname": "edds",
+      "companydescription": "derrser",
+      "selecttag": "2"
+    },
+    {
+      "id": 6,
+      "companyname": "edds",
+      "companydescription": "derrser",
+      "selecttag": "2"
+    },
+    {
+      "id": 7,
+      "companyname": "frfd",
+      "companydescription": "ewew",
+      "selecttag": "1"
+    },
+    {
+      "id": 8,
+      "companyname": "aaZ",
+      "companydescription": "zZ",
+      "selecttag": "1"
+    }
+  ]
 }
