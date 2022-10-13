@@ -16,9 +16,9 @@ export class CompanyListComponent implements OnInit {
   constructor(
     private companyService: CompanyService
   ) {
-    this.companylist =[];
+    this.companylist = [];
     this.edit = new EventEmitter();
-   }
+  }
 
   ngOnInit(): void {
     this.getCompany()
@@ -26,17 +26,18 @@ export class CompanyListComponent implements OnInit {
 
   //getCompany data
   getCompany() {
-    this.companyService.getCompany().subscribe((res) =>{
-     this.companylist = res;
+    this.companyService.getCompany().subscribe((res) => {
+      this.companylist = res;
     });
   }
-
-  
   //Delete the record
   public deleteCompanyData(id: any): void {
-    this.companyService.deleteCompany(id).subscribe((result) => {
-      this.getCompany();
-    });
+    var delBtn = confirm(" Do you want to delete ?");
+    if (delBtn == true) {
+      this.companyService.deleteCompany(id).subscribe((result) => {
+        this.getCompany();
+      });
+    }
   }
   public editCompany(company: company): void {
     // this.router.navigate(['employee/edit/', employee.id]);

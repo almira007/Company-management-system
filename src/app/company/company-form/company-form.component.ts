@@ -11,6 +11,7 @@ import { CompanyService } from '../service/company.service';
 })
 export class CompanyFormComponent implements OnInit {
 
+  //variable decration
   public add!: company;
   public isAddMode: boolean;
   private id!: string;
@@ -19,18 +20,24 @@ export class CompanyFormComponent implements OnInit {
   public isSubmitted: boolean;
   public companyData: company[];
 
+  //only charecter patten
+  private onlyCharecter: string = '^[A-Za-z\s]+$';
+  //Only alphabets patten
+  private onlyalphabets: string = '^[a-zA-Z \-\']+';
+
+  //inject
   constructor(
     private route: ActivatedRoute,
     private fb: FormBuilder,
-    private companyService: CompanyService) 
-    { 
+    private companyService: CompanyService
+  ) {
     this.isAddMode = true;
     this.isSubmitted = false
     this.companyForm = this.fb.group({
-      id:[],
-      companyname: ['',[Validators.required]],
-      companydescription: ['',[Validators.required]],
-      selecttag:['',[Validators.required]]
+      id: [],
+      companyname: ['', [Validators.required, Validators.minLength(3), Validators.pattern(this.onlyCharecter)]],
+      companydescription: ['', [Validators.required, Validators.pattern(this.onlyalphabets)]],
+      selecttag: ['', [Validators.required]]
     });
     this.companyData = [];
   }
@@ -39,33 +46,37 @@ export class CompanyFormComponent implements OnInit {
   get formValidation(): { [key: string]: AbstractControl } {
     return this.companyForm.controls;
   }
-  
+
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     this.isAddMode = !this.id;
   }
- 
-  public saveCompany(): void{
+
+  //submit the data
+  public saveCompany(): void {
     this.isSubmitted = true;
-    if(this.companyForm.valid){
+    if (this.companyForm.valid) {
       this.isSubmitted = false;
-      if(this.companyForm.value.id){
+      if (this.companyForm.value.id) {
         console.log(this.companyForm)
       }
-      else{
+      else {
         this.addCompany();
       }
       this.resetCompany();
     }
   }
-  
-  
+
+  //reset button
   public resetCompany(): void {
     this.isSubmitted = false;
     this.companyForm.reset();
   }
+
+  //add company data
   public addCompany(): void {
     this.companyService.addCompany(this.companyForm.value).subscribe(response => {
+      console.log();
     });
   }
 }
