@@ -1,3 +1,10 @@
 {
-    "company":[]
+    "company":[
+        {
+            "id":1,
+            "companyname": "1Rivet",
+            "companydescription":"web developer",
+            "selecttag":"web"
+        }
+    ]
 }
