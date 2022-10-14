@@ -30,6 +30,12 @@ export class CompanyListComponent implements OnInit {
     //add data
     this.companyCommunicationService.addCompany.subscribe((response:company) =>{
       this.companylist.push(response);
+    });
+
+    //update Record
+    this.companyCommunicationService.updateRecord.subscribe((response: company) => {
+      const index = this.companylist.findIndex((res) => res.id === response.id);
+      this.companylist.splice(index, 1, response);
     })
   }
 
@@ -50,6 +56,7 @@ export class CompanyListComponent implements OnInit {
   }
   public editComapny(company: company): void {
     this.router.navigate(['company/edit',company.id])
+    this.companyCommunicationService.editCompany.next(company);
 
   }
 

@@ -19,7 +19,6 @@ export class CompanyFormComponent implements OnInit {
 
   public companyForm: FormGroup;
   public isSubmitted: boolean;
-  public companyData: company[];
 
   //only charecter patten
   private onlyCharecter: string = '^[A-Za-z\s]+$';
@@ -41,7 +40,6 @@ export class CompanyFormComponent implements OnInit {
       companydescription: ['', [Validators.required, Validators.pattern(this.onlyalphabets)]],
       selecttag: ['', [Validators.required]]
     });
-    this.companyData = [];
   }
 
   //Validation function
@@ -52,6 +50,11 @@ export class CompanyFormComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     this.isAddMode = !this.id;
+
+    //edit Data
+    this.companyCommunicationService.editCompany.subscribe((response: company) => {
+      this.companyForm.patchValue(response);
+    })
   }
 
   //submit the data
@@ -60,7 +63,7 @@ export class CompanyFormComponent implements OnInit {
     if (this.companyForm.valid) {
       this.isSubmitted = false;
       if (this.companyForm.value.id) {
-        console.log(this.companyForm)
+        this.updateCompany();
       }
       else {
         this.addCompany();
@@ -79,6 +82,13 @@ export class CompanyFormComponent implements OnInit {
   public addCompany(): void {
     this.companyService.addCompany(this.companyForm.value).subscribe(response => {
     this.companyCommunicationService.addCompany.next(response);
+    });
+  }
+
+  //updated record add
+  public updateCompany(): void {
+    this.companyService.updateCompany(this.companyForm.value).subscribe((response) => {
+    this.companyCommunicationService.updateRecord.next(response);
     });
   }
 }
