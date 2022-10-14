@@ -1,0 +1,34 @@
+{
+  "company": [
+    {
+      "id": 5,
+      "companyname": "edds almira",
+      "companydescription": "derrser",
+      "selecttag": "2"
+    },
+    {
+      "id": 7,
+      "companyname": "Test",
+      "companydescription": "Hjhdkhdkhd",
+      "selecttag": "1"
+    },
+    {
+      "id": 8,
+      "companyname": "allu",
+      "companydescription": "company",
+      "selecttag": "1"
+    },
+    {
+      "id": 9,
+      "companyname": "hemanshi",
+      "companydescription": "coapmy",
+      "selecttag": "2"
+    },
+    {
+      "id": 10,
+      "companyname": "fddffddf",
+      "companydescription": "dffdfd",
+      "selecttag": "2"
+    }
+  ]
+}
