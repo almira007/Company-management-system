@@ -35,13 +35,8 @@
           </div>
         </div>
       </div>
-      <div>
-        <select class="form-select mt-2 " formControlName="selecttag">
-          <option selected>select tag</option>
-          <option value="1">Java</option>
-          <option value="2">Web</option>
-          <option value="3">HTML</option>
-        </select>
+      <div >
+        <ng-select class="mt-2" [items]="filed" bindLabel="name" [multiple]="true" appendTo="body" formControlName="selecttag" placeholder="Select Tag"></ng-select>
         <div
           *ngIf="formValidation['selecttag'].invalid && (isSubmitted || formValidation['selecttag'].touched || formValidation['selecttag'].dirty)">
           <div *ngIf="formValidation['selecttag'].errors && formValidation['selecttag'].errors['required']"

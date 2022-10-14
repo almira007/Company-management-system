@@ -1,28 +1,73 @@
 {
   "company": [
     {
+      "id": 1,
+      "companyname": "almira sdddd",
+      "companydescription": "sasas",
+      "selecttag": ""
+    },
+    {
+      "id": 2,
+      "companyname": "gfthg",
+      "companydescription": "fggffg",
+      "selecttag": ""
+    },
+    {
+      "id": 3,
+      "companyname": "dssd",
+      "companydescription": "sdsda",
+      "selecttag": ""
+    },
+    {
+      "id": 4,
+      "companyname": "fdgffg",
+      "companydescription": "gfgc",
+      "selecttag": ""
+    },
+    {
       "id": 5,
-      "companyname": "edds almira",
-      "companydescription": "derrser",
-      "selecttag": "2"
+      "companyname": "ghkfgkxgjxg",
+      "companydescription": "jhfbkdfkajdfkasdfadskjjkdkk",
+      "selecttag": [
+        {
+          "id": 2,
+          "name": "HTML"
+        },
+        {
+          "id": 3,
+          "name": "QA"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "companyname": "yuhjh",
+      "companydescription": "gvhghghg",
+      "selecttag": [
+        {
+          "id": 1,
+          "name": "Web"
+        },
+        {
+          "id": 2,
+          "name": "HTML"
+        }
+      ]
     },
     {
       "id": 7,
-      "companyname": "Testssdss",
-      "companydescription": "Hjhdkhdkhd",
-      "selecttag": "1"
-    },
-    {
-      "id": 8,
-      "companyname": "allu",
-      "companydescription": "company",
-      "selecttag": "1"
-    },
-    {
-      "id": 9,
-      "companyname": "hemanshi",
-      "companydescription": "coapmy",
-      "selecttag": "2"
+      "companyname": "aas",
+      "companydescription": "assasa",
+      "selecttag": [
+        {
+          "id": 1,
+          "name": "Web"
+        },
+        {
+          "id": 3,
+          "name": "QA"
+        }
+      ]
     }
   ]
 }

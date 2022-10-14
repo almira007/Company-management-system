@@ -13,17 +13,27 @@ import { CompanyService } from '../service/company.service';
 export class CompanyFormComponent implements OnInit {
 
   //variable decration
-  public add!: company;
   public isAddMode: boolean;
   private id!: string;
 
+  //company form 
   public companyForm: FormGroup;
+  //for validation on submit
   public isSubmitted: boolean;
 
   //only charecter patten
   private onlyCharecter: string = '^[A-Za-z\s]+$';
   //Only alphabets patten
   private onlyalphabets: string = '^[a-zA-Z \-\']+';
+
+  //tags decaration 
+  filed = [
+    { id: 1, name: 'Web' },
+    { id: 2, name: 'HTML' },
+    { id: 3, name: 'QA' },
+    { id: 4, name: 'BA' },
+    { id: 5, name: 'Angular'},
+   ];
 
   //inject
   constructor(
@@ -38,7 +48,7 @@ export class CompanyFormComponent implements OnInit {
       id: [],
       companyname: ['', [Validators.required]],
       companydescription: ['', [Validators.required, Validators.pattern(this.onlyalphabets)]],
-      selecttag: ['', [Validators.required]]
+      selecttag: ['', Validators.required]
     });
   }
 
@@ -54,7 +64,7 @@ export class CompanyFormComponent implements OnInit {
     //edit Data
     this.companyCommunicationService.editCompany.subscribe((response: company) => {
       this.companyForm.patchValue(response);
-    })
+    });
   }
 
   //submit the data

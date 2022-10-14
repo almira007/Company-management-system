@@ -10,6 +10,8 @@ import { CompanyService } from './service/company.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from '../shared/shared.module';
 import { CompanyCommunicationService } from './service/company-communication.service';
+import { NgSelectModule } from '@ng-select/ng-select';
+
 
 
 @NgModule({
@@ -24,7 +26,8 @@ import { CompanyCommunicationService } from './service/company-communication.ser
     ReactiveFormsModule,
     HttpClientModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    NgSelectModule
   ],
   providers:[
     CompanyService,
