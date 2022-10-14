@@ -2,13 +2,13 @@
   "company": [
     {
       "id": 5,
-      "companyname": "edds almira",
+      "companyname": "edds almiraaaa",
       "companydescription": "derrser",
       "selecttag": "2"
     },
     {
       "id": 7,
-      "companyname": "Test",
+      "companyname": "Testssdss",
       "companydescription": "Hjhdkhdkhd",
       "selecttag": "1"
     },
@@ -22,12 +22,6 @@
       "id": 9,
       "companyname": "hemanshi",
       "companydescription": "coapmy",
-      "selecttag": "2"
-    },
-    {
-      "id": 10,
-      "companyname": "fddffddf",
-      "companydescription": "dffdfd",
       "selecttag": "2"
     }
   ]
