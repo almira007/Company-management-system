@@ -11,10 +11,9 @@ import { CompanyService } from '../service/company.service';
 })
 export class CompanyListComponent implements OnInit {
 
-  // @Output() public edit: EventEmitter<any>;
 
   public companylist: company[]
-  public search= '';
+  public searchText= '';
 
   constructor(
     private companyService: CompanyService,
@@ -22,7 +21,6 @@ export class CompanyListComponent implements OnInit {
     private companyCommunicationService: CompanyCommunicationService
   ) {
     this.companylist = [];
-    // this.edit = new EventEmitter();
   }
 
   ngOnInit(): void {

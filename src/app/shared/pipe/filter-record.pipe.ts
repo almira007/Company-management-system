@@ -5,14 +5,17 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FilterRecordPipe implements PipeTransform {
 
-  transform(value: any, searchTerm: string): any {
-    value.toUpperCase
-    // if(value.length === 0){
-    //   return value;
-    // }
-    // return value.filter(function(search: any){
-    //    return search.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
-    // });
-  }
+  transform(items: any[], searchText: string): any[] {
+    if (!items){
+      return [];
+    }
+    if (!searchText){
+      return items;
+    }
+    searchText = searchText.toLocaleLowerCase();
 
+    return items.filter(it => {
+      return it.companyname.toLocaleLowerCase().includes(searchText);
+    });
+  }
 }

@@ -1,6 +1,5 @@
 {
   "company": [
-    
     {
       "id": 5,
       "companyname": "ghkfgkxgjxg",
@@ -35,6 +34,40 @@
       "id": 7,
       "companyname": "aas",
       "companydescription": "assasa",
+      "selecttag": [
+        {
+          "id": 1,
+          "name": "Web"
+        },
+        {
+          "id": 3,
+          "name": "QA"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "companyname": "wss",
+      "companydescription": "ssswsw",
+      "selecttag": [
+        {
+          "id": 2,
+          "name": "HTML"
+        },
+        {
+          "id": 3,
+          "name": "QA"
+        },
+        {
+          "id": 5,
+          "name": "Angular"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "companyname": "almira shaikh",
+      "companydescription": "xsxsxx",
       "selecttag": [
         {
           "id": 1,
