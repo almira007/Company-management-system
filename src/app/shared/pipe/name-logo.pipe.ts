@@ -7,7 +7,7 @@ export class NameLogoPipe implements PipeTransform {
 
   transform(value: any): string {
     value = value.toUpperCase();
-    const nameLogo = value.charAt(0) + value.charAt(3);
+    const nameLogo = value.charAt(0) + value.charAt(1);
     console.log(nameLogo)
     return nameLogo;
   }
