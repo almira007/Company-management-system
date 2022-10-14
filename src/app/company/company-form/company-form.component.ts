@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { company } from '../model/company.model';
+import { CompanyCommunicationService } from '../service/company-communication.service';
 import { CompanyService } from '../service/company.service';
 
 @Component({
@@ -29,13 +30,14 @@ export class CompanyFormComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private fb: FormBuilder,
-    private companyService: CompanyService
+    private companyService: CompanyService,
+    private companyCommunicationService: CompanyCommunicationService
   ) {
     this.isAddMode = true;
     this.isSubmitted = false
     this.companyForm = this.fb.group({
       id: [],
-      companyname: ['', [Validators.required, Validators.minLength(3), Validators.pattern(this.onlyCharecter)]],
+      companyname: ['', [Validators.required]],
       companydescription: ['', [Validators.required, Validators.pattern(this.onlyalphabets)]],
       selecttag: ['', [Validators.required]]
     });
@@ -76,7 +78,7 @@ export class CompanyFormComponent implements OnInit {
   //add company data
   public addCompany(): void {
     this.companyService.addCompany(this.companyForm.value).subscribe(response => {
-      console.log();
+    this.companyCommunicationService.addCompany.next(response);
     });
   }
 }
