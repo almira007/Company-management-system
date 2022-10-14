@@ -1,44 +1,34 @@
 {
   "company": [
     {
-      "id": 1,
-      "companyname": "1Rivet"
-    },
-    {
-      "id": 3,
-      "companyname": "almira",
-      "companydescription": "ssss",
-      "selecttag": "1"
-    },
-    {
-      "id": 4,
-      "companyname": "ayush",
-      "companydescription": "sass",
-      "selecttag": "1"
-    },
-    {
       "id": 5,
-      "companyname": "edds",
-      "companydescription": "derrser",
-      "selecttag": "2"
-    },
-    {
-      "id": 6,
-      "companyname": "edds",
+      "companyname": "edds almira",
       "companydescription": "derrser",
       "selecttag": "2"
     },
     {
       "id": 7,
-      "companyname": "frfd",
-      "companydescription": "ewew",
+      "companyname": "Test",
+      "companydescription": "Hjhdkhdkhd",
       "selecttag": "1"
     },
     {
       "id": 8,
-      "companyname": "aaZ",
-      "companydescription": "zZ",
+      "companyname": "allu",
+      "companydescription": "company",
       "selecttag": "1"
+    },
+    {
+      "id": 9,
+      "companyname": "hemanshi",
+      "companydescription": "coapmy",
+      "selecttag": "2"
+    },
+    {
+      "id": 10,
+      "companyname": "fddffddf",
+      "companydescription": "dffdfd",
+      "selecttag": "2"
     }
   ]
 }

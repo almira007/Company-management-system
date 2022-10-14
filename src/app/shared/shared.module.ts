@@ -1,15 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CompanyPipe } from './pipe/company.pipe';
+import { NameLogoPipe } from './pipe/name-logo.pipe';
 
 
 
 @NgModule({
   declarations: [
-    CompanyPipe
+    NameLogoPipe
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    NameLogoPipe
   ]
 })
 export class SharedModule { }
