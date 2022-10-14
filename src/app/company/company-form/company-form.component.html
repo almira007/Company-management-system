@@ -12,12 +12,12 @@
           *ngIf="formValidation['companyname'].invalid && (isSubmitted || formValidation['companyname'].touched || formValidation['companyname'].dirty)">
           <div *ngIf="formValidation['companyname'].errors && formValidation['companyname'].errors['required']"
             class="text-danger">Company Name is required.</div>
-          <div *ngIf="formValidation['companyname'].errors?.['minlength']" class="text-danger">
+          <!-- <div *ngIf="formValidation['companyname'].errors?.['minlength']" class="text-danger">
             Company Name shold have minimun 3 Characters.
-          </div>
-          <div *ngIf="formValidation['companyname'].errors?.['pattern']" class="text-danger">
+          </div> -->
+          <!-- <div *ngIf="formValidation['companyname'].errors?.['pattern']" class="text-danger">
             Company Name shold have only Characters.
-          </div>
+          </div> -->
         </div>
       </div>
       <div class="form-floating">
@@ -38,9 +38,9 @@
       <div>
         <select class="form-select mt-2 " formControlName="selecttag">
           <option selected>select tag</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
+          <option value="1">Java</option>
+          <option value="2">Web</option>
+          <option value="3">HTML</option>
         </select>
         <div
           *ngIf="formValidation['selecttag'].invalid && (isSubmitted || formValidation['selecttag'].touched || formValidation['selecttag'].dirty)">

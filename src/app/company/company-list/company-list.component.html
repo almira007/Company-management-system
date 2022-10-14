@@ -19,7 +19,7 @@
                 <td class="circle border border-success rounded-circle cursor"><a class="text-decoration-none ">{{item.companyname | nameLogo}}</a></td>
               </div>
             <div class="d-flex align-items-center justify-content-center">
-              <td [routerLink]="['edit','id']" (click)="editCompany(item)">{{item.companyname | titlecase}}</td>
+              <td (click)="editComapny(item)">{{item.companyname | titlecase}}</td>
             </div>
             <div class="d-flex align-items-center justify-content-center">
               <td ><button class="btn btn-danger " (click)="deleteCompanyData(item.id)">x</button></td>
