@@ -1,21 +1,6 @@
 {
   "company": [
     {
-      "id": 5,
-      "companyname": "ghkfgkxgjxg",
-      "companydescription": "jhfbkdfkajdfkasdfadskjjkdkk",
-      "selecttag": [
-        {
-          "id": 2,
-          "name": "HTML"
-        },
-        {
-          "id": 3,
-          "name": "QA"
-        }
-      ]
-    },
-    {
       "id": 6,
       "companyname": "yuhjh",
       "companydescription": "gvhghghg",
@@ -46,25 +31,6 @@
       ]
     },
     {
-      "id": 8,
-      "companyname": "wss",
-      "companydescription": "ssswsw",
-      "selecttag": [
-        {
-          "id": 2,
-          "name": "HTML"
-        },
-        {
-          "id": 3,
-          "name": "QA"
-        },
-        {
-          "id": 5,
-          "name": "Angular"
-        }
-      ]
-    },
-    {
       "id": 9,
       "companyname": "almira shaikh",
       "companydescription": "xsxsxx",
@@ -76,6 +42,21 @@
         {
           "id": 3,
           "name": "QA"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "companyname": "ssssa",
+      "companydescription": "asass",
+      "selecttag": [
+        {
+          "id": 2,
+          "name": "HTML"
+        },
+        {
+          "id": 4,
+          "name": "BA"
         }
       ]
     }
