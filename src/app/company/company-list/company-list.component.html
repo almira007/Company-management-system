@@ -1,31 +1,32 @@
-<div class="p-2 h-100">
+<div class="p-2 h-100 navbar-light bg-light">
   <section class="d-flex h-100 flex-column pt-2 g-4 py-1 px-2">
     <div class="d-flex me-2 justify-content-between">
       <span class="me-5">Company</span>
-      <button class="btn btn-outline-primary rounded-circle" routerLink="add">+</button>
+      <button class="circle border border-success rounded-circle cursor" routerLink="add">+</button>
     </div>
     <div class="pt-2">
-      
-        <input type="search" class="form-control" placeholder="Search..."  [(ngModel)]="searchText ">
+
+      <input type="search" class="form-control" placeholder="Search..." [(ngModel)]="searchText ">
     </div>
     <div class="mt-3">
       <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Logo</th>
+            <th scope="col">CompanyName</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
         <tbody>
           <tr *ngFor="let item of companylist | filterRecord: searchText ">
             <div class="d-flex justify-content-between">
               <div class="d-flex align-items-center justify-content-center">
-                <td class="circle border border-success rounded-circle cursor"><a class="text-decoration-none ">{{item.companyname | nameLogo}}</a></td>
+                <td class="circle border border-success rounded-circle cursor"><a
+                    class="text-decoration-none ">{{item.companyname | nameLogo}}</a></td>
               </div>
-            <div class="d-flex align-items-center justify-content-center">
-              <td (click)="editComapny(item)">{{item.companyname | titlecase}}</td>
             </div>
-            <div class="d-flex align-items-center justify-content-center">
-              <td (click)="editComapny(item)">{{item.companydescription | titlecase}}</td>
-            </div>
-            <div class="d-flex align-items-center justify-content-center">
-              <td ><button class="btn btn-danger " (click)="deleteCompanyData(item.id)">x</button></td>
-            </div>
-          </div>
+            <td (click)="editComapny(item)">{{item.companyname | titlecase}}</td>
+            <td><button class="btn btn-danger " (click)="deleteCompanyData(item.id)">x</button></td>
           </tr>
         </tbody>
       </table>
