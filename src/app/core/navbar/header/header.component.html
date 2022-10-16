@@ -1,16 +1,19 @@
-<header class="navbar-light bg-light ">
+<!-- <header class="d-flex flex-column navbar-light bg-light ">
         <div class=" align-items-center ms-3 d-flex">
-            <div>
                 <i class="bi bi-list text-black fs-4 me-3"></i>
-            </div>
-            <div class="">
                 <h4 class="text-black">Company</h4>
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                      <li class="breadcrumb-item">Company</li>
-                      <li class="breadcrumb-item active" aria-current="page">1Rivet</li>
-                    </ol>
-                  </nav>
-            </div>
+                <xng-breadcrumb class="ms-4"></xng-breadcrumb>
+
         </div>
-</header>
+</header> -->
+
+
+<nav class="d-flex w-100 flex-column bg-light p-2 border">
+  <div class="d-flex align-items-center">
+      <a class="nav-link">
+          <span class="bi bi-list me-3"></span>
+      </a>
+      <h4>Company</h4>
+  </div>
+  <xng-breadcrumb class="ms-4"></xng-breadcrumb>
+</nav>

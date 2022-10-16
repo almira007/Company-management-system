@@ -1,6 +1,8 @@
+import { TitleCasePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { BreadcrumbService } from 'xng-breadcrumb';
 import { company } from '../model/company.model';
 import { CompanyCommunicationService } from '../service/company-communication.service';
 import { CompanyService } from '../service/company.service';
@@ -20,6 +22,10 @@ export class CompanyFormComponent implements OnInit {
   public companyForm: FormGroup;
   //for validation on submit
   public isSubmitted: boolean;
+  //companyid 
+  public companyId: string;
+  private companyName: string="";
+
 
   //only charecter patten
   private onlyCharecter: string = '^[A-Za-z\s]+$';
@@ -40,7 +46,9 @@ export class CompanyFormComponent implements OnInit {
     private route: ActivatedRoute,
     private fb: FormBuilder,
     private companyService: CompanyService,
-    private companyCommunicationService: CompanyCommunicationService
+    private companyCommunicationService: CompanyCommunicationService,
+    private breadcrumbService: BreadcrumbService,
+
   ) {
     this.isAddMode = true;
     this.isSubmitted = false
@@ -49,6 +57,25 @@ export class CompanyFormComponent implements OnInit {
       companyname: ['', [Validators.required]],
       companydescription: ['', [Validators.required, Validators.pattern(this.onlyalphabets)]],
       selecttag: ['', Validators.required]
+    });
+
+    //breacdcrumb using
+    this.companyId = "";
+    this.route.params.subscribe((params) => {
+      this.companyId = params['id'];
+      this.companyCommunicationService.editCompany.subscribe((response: company) => {
+        this.companyForm.patchValue(response);
+        this.companyName = response.companyname;
+  
+      });
+      if(this.companyId){
+        setTimeout(() => {
+          this.breadcrumbService.set("@Edit", this.companyName)
+        }, 200);
+      }
+      else {
+        this.breadcrumbService.set("@Add", 'Company List')
+      }
     });
   }
 
@@ -64,6 +91,8 @@ export class CompanyFormComponent implements OnInit {
     //edit Data
     this.companyCommunicationService.editCompany.subscribe((response: company) => {
       this.companyForm.patchValue(response);
+      this.companyName = response.companyname;
+
     });
   }
 

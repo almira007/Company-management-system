@@ -24,8 +24,10 @@
     "@popperjs/core": "^2.10.2",
     "bootstrap": "^5.2.2",
     "icons": "^1.0.0",
+    "ng-dynamic-breadcrumb": "^8.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
+    "xng-breadcrumb": "^8.0.2",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {

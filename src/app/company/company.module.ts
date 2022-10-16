@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from '../shared/shared.module';
 import { CompanyCommunicationService } from './service/company-communication.service';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { NgDynamicBreadcrumbModule } from 'ng-dynamic-breadcrumb';
 
 
 
@@ -27,7 +28,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     HttpClientModule,
     SharedModule,
     FormsModule,
-    NgSelectModule
+    NgSelectModule,
+    NgDynamicBreadcrumbModule
   ],
   providers:[
     CompanyService,
