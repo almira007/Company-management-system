@@ -7,9 +7,13 @@ export class NameLogoPipe implements PipeTransform {
 
   transform(value: any): string {
     value = value.toUpperCase();
-    const nameLogo = value.charAt(0) + value.charAt(1);
-    console.log(nameLogo)
-    return nameLogo;
+    const nameArray = value.split(' ');
+
+    if (nameArray.length > 1) {
+      return nameArray[0].charAt(0) + nameArray[1].charAt(0);
+    } else {
+      return nameArray[0].charAt(0) + nameArray[0].charAt(1);
+    }
   }
-  
+
 }
