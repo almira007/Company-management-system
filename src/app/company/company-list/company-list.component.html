@@ -1,4 +1,4 @@
-<div class="p-2 h-100 navbar-light bg-light">
+<div class="p-2 h-100 navbar-light bg-background pt-2 border p-4 rounded">
   <section class="d-flex h-100 flex-column pt-2 g-4 py-1 px-2">
     <div class="d-flex me-2 justify-content-between">
       <span class="me-5">Company</span>
@@ -18,7 +18,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of companylist | filterRecord: searchText ">
+          <tr *ngFor="let item of companylist | filterRecord: searchText">
             <div class="d-flex justify-content-between">
               <div class="d-flex align-items-center justify-content-center">
                 <td class="circle border border-success rounded-circle cursor"><a

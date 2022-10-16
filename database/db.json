@@ -1,21 +1,6 @@
 {
   "company": [
     {
-      "id": 6,
-      "companyname": "yuhjh",
-      "companydescription": "gvhghghgss",
-      "selecttag": [
-        {
-          "id": 1,
-          "name": "Web"
-        },
-        {
-          "id": 2,
-          "name": "HTML"
-        }
-      ]
-    },
-    {
       "id": 7,
       "companyname": "Almira",
       "companydescription": "assasa",
@@ -57,6 +42,21 @@
         {
           "id": 5,
           "name": "Angular"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "companyname": "vcvbbv njjjjj",
+      "companydescription": "vbbb",
+      "selecttag": [
+        {
+          "id": 2,
+          "name": "HTML"
+        },
+        {
+          "id": 4,
+          "name": "BA"
         }
       ]
     }
