@@ -29,11 +29,12 @@ import { NgDynamicBreadcrumbModule } from 'ng-dynamic-breadcrumb';
     SharedModule,
     FormsModule,
     NgSelectModule,
-    NgDynamicBreadcrumbModule
+    NgDynamicBreadcrumbModule,
+    SharedModule
   ],
   providers:[
     CompanyService,
-    CompanyCommunicationService
-  ]
+    CompanyCommunicationService 
+   ]
 })
 export class CompanyModule { }

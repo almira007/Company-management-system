@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { NotificationServiceService } from 'src/app/shared/notification-service.service';
 import { company } from '../model/company.model';
 import { CompanyCommunicationService } from '../service/company-communication.service';
 import { CompanyService } from '../service/company.service';
@@ -18,7 +19,8 @@ export class CompanyListComponent implements OnInit {
   constructor(
     private companyService: CompanyService,
     private router: Router,
-    private companyCommunicationService: CompanyCommunicationService
+    private companyCommunicationService: CompanyCommunicationService,
+    private notification: NotificationServiceService
   ) {
     this.companylist = [];
   }
@@ -46,10 +48,12 @@ export class CompanyListComponent implements OnInit {
   }
   //Delete the record
   public deleteCompanyData(id: any): void {
-    var delBtn = confirm(" Do you want to delete ?");
+    var delBtn = confirm("Are you sure to delete ?");
     if (delBtn == true) {
       this.companyService.deleteCompany(id).subscribe((result) => {
         this.getCompany();
+        this.notification.showWarning('Data Deleted successfully','Message');
+
       });
     }
   }

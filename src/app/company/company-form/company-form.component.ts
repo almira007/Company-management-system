@@ -2,6 +2,7 @@ import { TitleCasePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { NotificationServiceService } from 'src/app/shared/notification-service.service';
 import { BreadcrumbService } from 'xng-breadcrumb';
 import { company } from '../model/company.model';
 import { CompanyCommunicationService } from '../service/company-communication.service';
@@ -48,6 +49,7 @@ export class CompanyFormComponent implements OnInit {
     private companyService: CompanyService,
     private companyCommunicationService: CompanyCommunicationService,
     private breadcrumbService: BreadcrumbService,
+    private notification: NotificationServiceService
 
   ) {
     this.isAddMode = true;
@@ -103,11 +105,18 @@ export class CompanyFormComponent implements OnInit {
       this.isSubmitted = false;
       if (this.companyForm.value.id) {
         this.updateCompany();
+        this.notification.showInfo("This is Edit Data", "Data Add sucessfully")
       }
       else {
         this.addCompany();
+        this.notification.showSuccess("Data shown successfully !!", "Data Add sucessfully");
       }
+      this.isSubmitted = false;
       this.resetCompany();
+
+    }
+    else{
+      this.notification.showError('Something Went Wrong', 'Message');
     }
   }
 
