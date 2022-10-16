@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
   selector: 'app-header',
@@ -7,12 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  public status:any;
-  constructor() {
-    this.status = "Add Company"
+
+  constructor(  
+    private breadcrumbService: BreadcrumbService) 
+    {
+      //breadcrumb using
+      this.breadcrumbService.set('@ChildOne', 'Child One');
+
    }
 
   ngOnInit(): void {
+    
   }
 
 }

@@ -4,7 +4,7 @@
 
 <div class="p-4">
   <div>
-    <form class="row pt-2" [formGroup]="companyForm" (ngSubmit)="saveCompany()">
+    <form class="row pt-2 border p-4 rounded"  [formGroup]="companyForm" (ngSubmit)="saveCompany()">
       <div class="mb-3 col-12">
         <input type="text" class="form-control" formControlName="companyname" placeholder="Company Name"
           [ngClass]="{'is-invalid' : formValidation['companyname'].invalid && (isSubmitted || formValidation['companyname'].touched || formValidation['companyname'].dirty),
