@@ -50,7 +50,6 @@ export class CompanyFormComponent implements OnInit {
     private companyCommunicationService: CompanyCommunicationService,
     private breadcrumbService: BreadcrumbService,
     private notification: NotificationServiceService
-
   ) {
     this.isAddMode = true;
     this.isSubmitted = false
