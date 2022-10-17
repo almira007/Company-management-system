@@ -29,36 +29,6 @@
           "name": "QA"
         }
       ]
-    },
-    {
-      "id": 11,
-      "companyname": "aaaaaaaa",
-      "companydescription": "gggbb ",
-      "selecttag": [
-        {
-          "id": 3,
-          "name": "QA"
-        },
-        {
-          "id": 5,
-          "name": "Angular"
-        }
-      ]
-    },
-    {
-      "id": 12,
-      "companyname": "vcvbbv njjjjj",
-      "companydescription": "vbbb",
-      "selecttag": [
-        {
-          "id": 2,
-          "name": "HTML"
-        },
-        {
-          "id": 4,
-          "name": "BA"
-        }
-      ]
     }
   ]
 }

@@ -6,8 +6,9 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BreadcrumbModule, BreadcrumbService } from 'xng-breadcrumb';
-import { ToastrModule } from 'ngx-toastr';
+import {  ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {OverlayModule} from '@angular/cdk/overlay';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       "extendedTimeOut": 1000,
       "positionClass": "toast-top-center"
     }),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    OverlayModule
     ],
   providers: [
     BreadcrumbService

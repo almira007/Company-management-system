@@ -3,20 +3,23 @@ import { CommonModule } from '@angular/common';
 import { NameLogoPipe } from './pipe/name-logo.pipe';
 import { FilterRecordPipe } from './pipe/filter-record.pipe';
 import { NotificationServiceService } from './notification-service.service';
+import { ConformationComponent } from './component/conformation/conformation.component';
 
 
 
 @NgModule({
   declarations: [
     NameLogoPipe,
-    FilterRecordPipe
+    FilterRecordPipe,
+    ConformationComponent
   ],
   imports: [
     CommonModule
   ],
   exports: [
     NameLogoPipe,
-    FilterRecordPipe
+    FilterRecordPipe,
+    ConformationComponent
   ],
   providers:[
     NotificationServiceService
