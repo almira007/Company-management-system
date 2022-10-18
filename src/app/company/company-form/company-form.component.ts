@@ -23,7 +23,7 @@ export class CompanyFormComponent implements OnInit {
   public companyForm: FormGroup;
   //for validation on submit
   public isSubmitted: boolean;
- 
+
 
 
   //only charecter patten
@@ -46,17 +46,19 @@ export class CompanyFormComponent implements OnInit {
     private fb: FormBuilder,
     private companyService: CompanyService,
     private companyCommunicationService: CompanyCommunicationService,
-    private breadcrumbService: BreadcrumbService,
-    private notification: NotificationServiceService
+    private notification: NotificationServiceService,
+    private activatedRoute: ActivatedRoute
   ) {
     this.isAddMode = true;
     this.isSubmitted = false
+
     this.companyForm = this.fb.group({
       id: [],
       companyname: ['', [Validators.required]],
       companydescription: ['', [Validators.required, Validators.pattern(this.onlyalphabets)]],
       selecttag: ['', Validators.required]
     });
+
   }
 
   //Validation function
@@ -68,10 +70,10 @@ export class CompanyFormComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
     this.isAddMode = !this.id;
 
-    //edit Data
-    this.companyCommunicationService.editCompany.subscribe((response: company) => {
-      this.companyForm.patchValue(response);
-    });
+    // //edit Data
+    // this.companyCommunicationService.editCompany.subscribe((response: company) => {
+    //   this.companyForm.patchValue(response);
+    // });
   }
 
   //submit the data
@@ -80,7 +82,9 @@ export class CompanyFormComponent implements OnInit {
     if (this.companyForm.valid) {
       this.isSubmitted = false;
       if (this.companyForm.value.id) {
-        this.updateCompany();
+        this.companyService.updateCompany(this.companyForm.value).subscribe((res) => {
+          console.log(res);
+        });
         this.notification.showInfo("This is Edit Data", "Data Add sucessfully")
       }
       else {
@@ -109,10 +113,4 @@ export class CompanyFormComponent implements OnInit {
     });
   }
 
-  //updated record add
-  public updateCompany(): void {
-    this.companyService.updateCompany(this.companyForm.value).subscribe((response) => {
-      this.companyCommunicationService.updateRecord.next(response);
-    });
-  }
 }

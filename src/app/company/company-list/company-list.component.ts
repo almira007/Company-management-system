@@ -44,11 +44,11 @@ export class CompanyListComponent implements OnInit {
       this.companylist.push(response);
     });
 
-    //update Record
-    this.companyCommunicationService.updateRecord.subscribe((response: company) => {
-      const index = this.companylist.findIndex((res) => res.id === response.id);
-      this.companylist.splice(index, 1, response);
-    })
+    // //update Record
+    // this.companyCommunicationService.updateRecord.subscribe((response: company) => {
+    //   const index = this.companylist.findIndex((res) => res.id === response.id);
+    //   this.companylist.splice(index, 1, response);
+    // })
   }
 
   //getCompany data
@@ -98,8 +98,7 @@ export class CompanyListComponent implements OnInit {
   }
 
   public editComapny(company: company): void {
-    this.router.navigate(['company/edit', company.id])
-    this.companyCommunicationService.editCompany.next(company);
+    this.router.navigate(['company/edit', company.id]);
   }
 
   
@@ -107,6 +106,7 @@ export class CompanyListComponent implements OnInit {
   redirectBreadEdit(name: string) {
     this.breadcrumb.breadcrumb.next("Edit / " + name)
   }
+  
   redirectBreadAdd() {
     this.breadcrumb.breadcrumb.next("Add")
   }
