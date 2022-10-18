@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { BreadcrumbModule, BreadcrumbService } from 'xng-breadcrumb';
 import {  ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OverlayModule } from '@angular/cdk/overlay';
@@ -20,7 +19,6 @@ import { OverlayModule } from '@angular/cdk/overlay';
     AppRoutingModule,
     CoreModule,
     NgbModule,
-    BreadcrumbModule,
     ToastrModule.forRoot({
       "closeButton": true,
       "progressBar": true,
@@ -31,9 +29,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
     BrowserAnimationsModule,
     OverlayModule
     ],
-  providers: [
-    BreadcrumbService
-  ],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }

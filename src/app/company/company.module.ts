@@ -12,6 +12,7 @@ import { SharedModule } from '../shared/shared.module';
 import { CompanyCommunicationService } from './service/company-communication.service';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { NgDynamicBreadcrumbModule } from 'ng-dynamic-breadcrumb';
+import { BreadcrumbService } from './service/breadcrumb.service';
 
 
 
@@ -34,7 +35,8 @@ import { NgDynamicBreadcrumbModule } from 'ng-dynamic-breadcrumb';
   ],
   providers:[
     CompanyService,
-    CompanyCommunicationService 
+    CompanyCommunicationService,
+    BreadcrumbService 
    ]
 })
 export class CompanyModule { }

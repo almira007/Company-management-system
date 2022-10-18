@@ -7,6 +7,7 @@ import { CompanyCommunicationService } from '../service/company-communication.se
 import { CompanyService } from '../service/company.service';
 import { ConformationComponent } from 'src/app/shared/component/conformation/conformation.component';
 import { ComponentPortal } from '@angular/cdk/portal';
+import { BreadcrumbService } from '../service/breadcrumb.service';
 
 
 @Component({
@@ -29,7 +30,8 @@ export class CompanyListComponent implements OnInit {
     private router: Router,
     private companyCommunicationService: CompanyCommunicationService,
     private notification: NotificationServiceService,
-    private overlay: Overlay
+    private overlay: Overlay,
+    private breadcrumb: BreadcrumbService
   ) {
     this.companylist = [];
   }
@@ -82,7 +84,7 @@ export class CompanyListComponent implements OnInit {
     componentRef.instance.confirm.subscribe((res) => {
       this.companyService.deleteCompany(item.id).subscribe((result) => {
         this.getCompany();
-        this.notification.showWarning('Data Deleted successfully', 'Message');
+        this.notification.showWarning('Data Deleted successfully', 'Message'); 
       });
       this.overlayRef.detach();
       console.log(res);
@@ -98,5 +100,14 @@ export class CompanyListComponent implements OnInit {
   public editComapny(company: company): void {
     this.router.navigate(['company/edit', company.id])
     this.companyCommunicationService.editCompany.next(company);
+  }
+
+  
+  // BreadCrumb 
+  redirectBreadEdit(name: string) {
+    this.breadcrumb.breadcrumb.next("Edit / " + name)
+  }
+  redirectBreadAdd() {
+    this.breadcrumb.breadcrumb.next("Add")
   }
 }

@@ -2,7 +2,15 @@
     font-size: 30px;
 }
 
-
 .bg-background{
     background-color: #a6f5bc;
+}
+
+.breadcrumb {
+    margin: 0;
+
+    &-item {
+        text-decoration: none;
+
+    }
 }
