@@ -23,9 +23,7 @@ export class CompanyFormComponent implements OnInit {
   public companyForm: FormGroup;
   //for validation on submit
   public isSubmitted: boolean;
-  //companyid 
-  public companyId: string;
-  private companyName: string="";
+ 
 
 
   //only charecter patten
@@ -39,8 +37,8 @@ export class CompanyFormComponent implements OnInit {
     { id: 2, name: 'HTML' },
     { id: 3, name: 'QA' },
     { id: 4, name: 'BA' },
-    { id: 5, name: 'Angular'},
-   ];
+    { id: 5, name: 'Angular' },
+  ];
 
   //inject
   constructor(
@@ -59,25 +57,6 @@ export class CompanyFormComponent implements OnInit {
       companydescription: ['', [Validators.required, Validators.pattern(this.onlyalphabets)]],
       selecttag: ['', Validators.required]
     });
-
-    //breacdcrumb using
-    this.companyId = "";
-    this.route.params.subscribe((params) => {
-      this.companyId = params['id'];
-      this.companyCommunicationService.editCompany.subscribe((response: company) => {
-        this.companyForm.patchValue(response);
-        this.companyName = response.companyname;
-  
-      });
-      if(this.companyId){
-        setTimeout(() => {
-          this.breadcrumbService.set("@Edit", this.companyName)
-        }, 200);
-      }
-      else {
-        this.breadcrumbService.set("@Add", 'Company List')
-      }
-    });
   }
 
   //Validation function
@@ -92,8 +71,6 @@ export class CompanyFormComponent implements OnInit {
     //edit Data
     this.companyCommunicationService.editCompany.subscribe((response: company) => {
       this.companyForm.patchValue(response);
-      this.companyName = response.companyname;
-
     });
   }
 
@@ -114,7 +91,7 @@ export class CompanyFormComponent implements OnInit {
       this.resetCompany();
 
     }
-    else{
+    else {
       this.notification.showError('Something Went Wrong', 'Message');
     }
   }
@@ -128,14 +105,14 @@ export class CompanyFormComponent implements OnInit {
   //add company data
   public addCompany(): void {
     this.companyService.addCompany(this.companyForm.value).subscribe(response => {
-    this.companyCommunicationService.addCompany.next(response);
+      this.companyCommunicationService.addCompany.next(response);
     });
   }
 
   //updated record add
   public updateCompany(): void {
     this.companyService.updateCompany(this.companyForm.value).subscribe((response) => {
-    this.companyCommunicationService.updateRecord.next(response);
+      this.companyCommunicationService.updateRecord.next(response);
     });
   }
 }

@@ -8,17 +8,17 @@ import { BreadcrumbService } from 'xng-breadcrumb';
 })
 export class HeaderComponent implements OnInit {
 
-
-  constructor(  
-    private breadcrumbService: BreadcrumbService) 
+  public title!: string
+  constructor( 
+    private breadcrumb: BreadcrumbService ) 
     {
-      //breadcrumb using
-      this.breadcrumbService.set('@ChildOne', 'Child One');
-
    }
 
   ngOnInit(): void {
-    
+    //breadcrumb using
+    this.title = ''
+    this.breadcrumb.breadcrumbs$.subscribe((res:any )=> this.title = res)
+    console.log(this.title);
   }
 
 }

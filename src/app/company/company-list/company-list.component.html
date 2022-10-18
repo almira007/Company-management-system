@@ -2,7 +2,7 @@
   <section class="d-flex h-100 flex-column pt-2 g-4 py-1 px-2">
     <div class="d-flex me-2 justify-content-between">
       <span class="me-5">Company</span>
-      <button class="circle border border-success rounded-circle cursor" routerLink="add">+</button>
+      <button class="circle border border-success rounded-circle cursor" routerLink="add" (click)='redirectBreadAdd()'>+</button>
     </div>
     <div class="pt-2">
 
@@ -25,7 +25,7 @@
                     class="text-decoration-none ">{{item.companyname | nameLogo}}</a></td>
               </div>
             </div>
-            <td (click)="editComapny(item)">{{item.companyname | titlecase}}</td>
+            <td (click)="editComapny(item)" (click)="redirectBreadEdit(item.companyname)">{{item.companyname | titlecase}}</td>
             <td><button class="btn btn-danger " (click)="deleteCompanyData(item)">x</button></td>
           </tr>
         </tbody>
