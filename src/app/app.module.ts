@@ -8,7 +8,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BreadcrumbModule, BreadcrumbService } from 'xng-breadcrumb';
 import {  ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {OverlayModule} from '@angular/cdk/overlay';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 
 @NgModule({

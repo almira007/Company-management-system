@@ -1,21 +1,6 @@
 {
   "company": [
     {
-      "id": 7,
-      "companyname": "Almira",
-      "companydescription": "assasa",
-      "selecttag": [
-        {
-          "id": 1,
-          "name": "Web"
-        },
-        {
-          "id": 3,
-          "name": "QA"
-        }
-      ]
-    },
-    {
       "id": 9,
       "companyname": "almira shaikh",
       "companydescription": "xsxsxx",
