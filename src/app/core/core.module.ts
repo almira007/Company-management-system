@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './navbar/header/header.component';
 import { RouterModule } from '@angular/router';
 import { BreadcrumbService } from '../company/service/breadcrumb.service';
+import { EditResolver } from './resolver/edit.resolver';
 
 
 
@@ -17,7 +18,8 @@ import { BreadcrumbService } from '../company/service/breadcrumb.service';
   ],
   exports:[HeaderComponent],
   providers:[
-    BreadcrumbService
+    BreadcrumbService,
+    EditResolver
   ]
 })
 export class CoreModule { }

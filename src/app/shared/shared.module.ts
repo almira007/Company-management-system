@@ -6,7 +6,6 @@ import { NotificationServiceService } from './notification-service.service';
 import { ConformationComponent } from './component/conformation/conformation.component';
 
 
-
 @NgModule({
   declarations: [
     NameLogoPipe,
@@ -19,7 +18,7 @@ import { ConformationComponent } from './component/conformation/conformation.com
   exports: [
     NameLogoPipe,
     FilterRecordPipe,
-    ConformationComponent
+    ConformationComponent,
   ],
   providers:[
     NotificationServiceService

@@ -6,29 +6,60 @@ import { company } from '../model/company.model';
 @Injectable()
 export class CompanyService {
 
-  public baseurl:string;
+  public baseurl: string;
 
-  constructor(private http: HttpClient) { 
+  constructor(
+    private http: HttpClient
+  ) {
     this.baseurl = "http://localhost:3000/";
   }
 
-  getCompany(): Observable<company[]> {
+  /**
+   * Get list of company
+   * @returns company list
+   */
+  public getCompany(): Observable<company[]> {
     const url: string = this.baseurl + 'company';
     return this.http.get<company[]>(url);
   }
-  
-  addCompany(user: company): Observable<company> {
-    const url: string = this.baseurl + 'company';
-    return this.http.post<company>(url, user);
+
+  /**
+   * Get company by id
+   * @param id get id
+   * @returns company object
+   */
+  public getComapnyById(id: number): Observable<company> {
+    const url: string = this.baseurl + 'company/' + id;
+    return this.http.get<company>(url);
   }
-  
-  updateCompany(company: company): Observable<company> {
+
+
+  /**
+   * Add new company
+   * @param user Get company bosy
+   * @returns comapny object
+   */
+  public addCompany(company: company): Observable<company> {
+    const url: string = this.baseurl + 'company';
+    return this.http.post<company>(url, company);
+  }
+
+  /**
+   * Update Company
+   * @param company get company
+   * @returns company object
+   */
+  public updateCompany(company: company): Observable<company> {
     const url: string = this.baseurl + 'company/' + company.id;
     return this.http.put<company>(url, company);
   }
 
-  
-  deleteCompany(id: number): Observable<company> {
+  /**
+   * Delete company
+   * @param id get id
+   * @returns 
+   */
+  public deleteCompany(id: number): Observable<company> {
     const url: string = this.baseurl + 'company/' + id;
     return this.http.delete<company>(url);
   }
