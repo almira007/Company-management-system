@@ -14,6 +14,21 @@
           "name": "QA"
         }
       ]
+    },
+    {
+      "id": 10,
+      "companyname": "charvi sarang",
+      "companydescription": "web developwe",
+      "selecttag": [
+        {
+          "id": 1,
+          "name": "Web"
+        },
+        {
+          "id": 3,
+          "name": "QA"
+        }
+      ]
     }
   ]
 }
