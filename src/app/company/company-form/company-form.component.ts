@@ -4,7 +4,7 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 import { ActivatedRoute } from '@angular/router';
 import { NotificationServiceService } from 'src/app/shared/notification-service.service';
 import { BreadcrumbService } from 'xng-breadcrumb';
-import { company } from '../model/company.model';
+import { Company } from '../model/company.model';
 import { CompanyCommunicationService } from '../service/company-communication.service';
 import { CompanyService } from '../service/company.service';
 
@@ -54,9 +54,9 @@ export class CompanyFormComponent implements OnInit {
 
     this.companyForm = this.fb.group({
       id: [],
-      companyname: ['', [Validators.required]],
-      companydescription: ['', [Validators.required, Validators.pattern(this.onlyalphabets)]],
-      selecttag: ['', Validators.required]
+      companyName: ['', [Validators.required]],
+      companyDescription: ['', [Validators.required, Validators.pattern(this.onlyalphabets)]],
+      selectTag: ['', Validators.required]
     });
 
   }

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { company } from '../model/company.model';
+import { Company } from '../model/company.model';
 
 @Injectable()
 export class CompanyService {
@@ -18,9 +18,9 @@ export class CompanyService {
    * Get list of company
    * @returns company list
    */
-  public getCompany(): Observable<company[]> {
+  public getCompany(): Observable<Company[]> {
     const url: string = this.baseurl + 'company';
-    return this.http.get<company[]>(url);
+    return this.http.get<Company[]>(url);
   }
 
   /**
@@ -28,9 +28,9 @@ export class CompanyService {
    * @param id get id
    * @returns company object
    */
-  public getComapnyById(id: number): Observable<company> {
+  public getComapnyById(id: number): Observable<Company> {
     const url: string = this.baseurl + 'company/' + id;
-    return this.http.get<company>(url);
+    return this.http.get<Company>(url);
   }
 
 
@@ -39,9 +39,9 @@ export class CompanyService {
    * @param company Get company bosy
    * @returns comapny object
    */
-  public addCompany(company: company): Observable<company> {
+  public addCompany(company: Company): Observable<Company> {
     const url: string = this.baseurl + 'company';
-    return this.http.post<company>(url, company);
+    return this.http.post<Company>(url, company);
   }
 
   /**
@@ -49,9 +49,9 @@ export class CompanyService {
    * @param company get company
    * @returns company object
    */
-  public updateCompany(company: company): Observable<company> {
+  public updateCompany(company: Company): Observable<Company> {
     const url: string = this.baseurl + 'company/' + company.id;
-    return this.http.put<company>(url, company);
+    return this.http.put<Company>(url, company);
   }
 
   /**
@@ -59,8 +59,8 @@ export class CompanyService {
    * @param id get id
    * @returns 
    */
-  public deleteCompany(id: number): Observable<company> {
+  public deleteCompany(id: number): Observable<Company> {
     const url: string = this.baseurl + 'company/' + id;
-    return this.http.delete<company>(url);
+    return this.http.delete<Company>(url);
   }
 }

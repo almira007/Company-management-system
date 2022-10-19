@@ -14,9 +14,9 @@ import { EditResolver } from './resolver/edit.resolver';
     CommonModule,
     RouterModule,
   ],
-  exports:[HeaderComponent],
   providers:[
     EditResolver
-  ]
+  ],
+  exports:[HeaderComponent]
 })
 export class CoreModule { }

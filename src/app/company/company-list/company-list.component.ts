@@ -2,7 +2,7 @@ import { Component, ComponentRef, EventEmitter, Input, OnInit, Output } from '@a
 import { Router } from '@angular/router';
 import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
 import { NotificationServiceService } from 'src/app/shared/notification-service.service';
-import { company } from '../model/company.model';
+import { Company } from '../model/company.model';
 import { CompanyCommunicationService } from '../service/company-communication.service';
 import { CompanyService } from '../service/company.service';
 import { ConformationComponent } from 'src/app/shared/component/conformation/conformation.component';
@@ -21,7 +21,7 @@ export class CompanyListComponent implements OnInit {
 
   @Input() public dataList: any;
 
-  public companylist: company[]
+  public companyList: Company[]
 
   public searchText = '';
 
@@ -35,33 +35,33 @@ export class CompanyListComponent implements OnInit {
     private overlay: Overlay,
     private breadcrumbService: BreadcrumbService
   ) {
-    this.companylist = [];
+    this.companyList = [];
   }
 
   ngOnInit(): void {
     this.getCompany()
 
     //add data
-    this.companyCommunicationService.addCompany.subscribe((response: company) => {
-      this.companylist.push(response);
+    this.companyCommunicationService.addCompany.subscribe((response: Company) => {
+      this.companyList.push(response);
     });
 
     //update Record
-    this.companyCommunicationService.updateRecord.subscribe((response: company) => {
-      const index = this.companylist.findIndex((res) => res.id === response.id);
-      this.companylist.splice(index, 1, response);
+    this.companyCommunicationService.updateRecord.subscribe((response: Company) => {
+      const index = this.companyList.findIndex((res) => res.id === response.id);
+      this.companyList.splice(index, 1, response);
     });
   }
- 
+
 
   //getCompany data
   getCompany() {
     this.companyService.getCompany().subscribe((res) => {
-      this.companylist = res;
+      this.companyList = res;
     });
   }
   //Delete the record
-  public deleteCompanyData(item: company): void {
+  public deleteCompanyData(item: Company): void {
     // Overlay config
     const overlayConfig: OverlayConfig = new OverlayConfig();
     overlayConfig.positionStrategy = this.overlay.position().global().centerHorizontally().centerVertically();
@@ -73,7 +73,7 @@ export class CompanyListComponent implements OnInit {
     // porat attched
     const componentRef = this.overlayRef.attach(portal)
 
-    componentRef.instance.name = item.companyname;
+    componentRef.instance.name = item.companyName;
 
     componentRef.instance.confirm.subscribe((res) => {
       this.companyService.deleteCompany(item.id).subscribe((result) => {
@@ -90,17 +90,14 @@ export class CompanyListComponent implements OnInit {
     });
   }
 
-  public editComapny(company: company): void {
-    this.router.navigate(['company/edit', company.id]);
-  }
-
   // BreadCrumb 
-  public redirectBreadAdd() { 
-    this.breadcrumbService.breadcrumb.next('Add');
+  public redirectAdd(): void {
+    this.breadcrumbService.setData(0, 'add');
   }
 
-  public redirectBreadEdit(companyname: string) {
-   this.breadcrumbService.breadcrumb.next(companyname)
+  public editComapny(company: Company): void {
+    this.breadcrumbService.setData(company.id, company.companyName);
+    this.router.navigate(['company/edit', company.id]);
   }
 
 }
