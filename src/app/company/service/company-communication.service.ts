@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { company } from '../model/company.model';
+import { Company } from '../model/company.model';
 
 @Injectable()
 export class CompanyCommunicationService {
 
-  public addCompany: Subject<company>;
+  public addCompany: Subject<Company>;
   
 
-  public updateRecord: Subject<company>;
+  public updateRecord: Subject<Company>;
 
   constructor() { 
     this.addCompany = new Subject();

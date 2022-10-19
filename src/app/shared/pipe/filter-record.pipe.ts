@@ -6,16 +6,17 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class FilterRecordPipe implements PipeTransform {
 
   transform(items: any[], searchText: string): any[] {
-    if (!items){
+    if (!items) {
       return [];
     }
-    if (!searchText){
+    if (!searchText) {
       return items;
     }
+
     searchText = searchText.toLocaleLowerCase();
 
     return items.filter(it => {
-      return it.companyname.toLocaleLowerCase().includes(searchText);
+      return it.companyName.toLocaleLowerCase().includes(searchText);
     });
   }
 }

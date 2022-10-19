@@ -1,6 +1,6 @@
-export class company{
+export class Company{
     public id!:number;
-    public companyname!:string;
-    public companydescription?:string;
-    public selecttag?:string;
+    public companyName!:string;
+    public companyDescription?:string;
+    public selectTag?:string;
 }

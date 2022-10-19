@@ -6,12 +6,12 @@
   <div>
     <form class="row pt-2 border p-4 rounded"  [formGroup]="companyForm" (ngSubmit)="saveCompany()">
       <div class="mb-3 col-12">
-        <input type="text" class="form-control" formControlName="companyname" placeholder="Company Name"
-          [ngClass]="{'is-invalid' : formValidation['companyname'].invalid && (isSubmitted || formValidation['companyname'].touched || formValidation['companyname'].dirty),
-        'is-valid' : formValidation['companyname'].valid && (isSubmitted || formValidation['companyname'].touched || formValidation['companyname'].dirty)}">
+        <input type="text" class="form-control" formControlName="companyName" placeholder="Company Name"
+          [ngClass]="{'is-invalid' : formValidation['companyName'].invalid && (isSubmitted || formValidation['companyName'].touched || formValidation['companyName'].dirty),
+        'is-valid' : formValidation['companyName'].valid && (isSubmitted || formValidation['companyName'].touched || formValidation['companyName'].dirty)}">
         <div class="invalid-feedback"
-          *ngIf="formValidation['companyname'].invalid && (isSubmitted || formValidation['companyname'].touched || formValidation['companyname'].dirty)">
-          <div *ngIf="formValidation['companyname'].errors && formValidation['companyname'].errors['required']"
+          *ngIf="formValidation['companyName'].invalid && (isSubmitted || formValidation['companyName'].touched || formValidation['companyName'].dirty)">
+          <div *ngIf="formValidation['companyName'].errors && formValidation['companyName'].errors['required']"
             class="text-danger">Company Name is required.</div>
           <!-- <div *ngIf="formValidation['companyname'].errors?.['minlength']" class="text-danger">
             Company Name shold have minimun 3 Characters.
@@ -22,25 +22,25 @@
         </div>
       </div>
       <div class="form-floating">
-        <textarea class="form-control" style="height: 100px" formControlName="companydescription"
+        <textarea class="form-control" style="height: 100px" formControlName="companyDescription"
           placeholder="Company Description"
-          [ngClass]="{'is-invalid' : formValidation['companydescription'].invalid && (isSubmitted || formValidation['companydescription'].touched || formValidation['companydescription'].dirty),
-          'is-valid' : formValidation['companydescription'].valid && (isSubmitted || formValidation['companydescription'].touched || formValidation['companydescription'].dirty)}"></textarea>
+          [ngClass]="{'is-invalid' : formValidation['companyDescription'].invalid && (isSubmitted || formValidation['companyDescription'].touched || formValidation['companyDescription'].dirty),
+          'is-valid' : formValidation['companyDescription'].valid && (isSubmitted || formValidation['companyDescription'].touched || formValidation['companyDescription'].dirty)}"></textarea>
         <div  class="invalid-feedback"
-          *ngIf="formValidation['companydescription'].invalid && (isSubmitted || formValidation['companydescription'].touched || formValidation['companydescription'].dirty)">
+          *ngIf="formValidation['companyDescription'].invalid && (isSubmitted || formValidation['companyDescription'].touched || formValidation['companyDescription'].dirty)">
           <div
-            *ngIf="formValidation['companydescription'].errors && formValidation['companydescription'].errors['required']"
+            *ngIf="formValidation['companyDescription'].errors && formValidation['companyDescription'].errors['required']"
             class="text-danger">Company Description is required.</div>
-          <div *ngIf="formValidation['companydescription'].errors?.['pattern']" class="text-danger">
+          <div *ngIf="formValidation['companyDescription'].errors?.['pattern']" class="text-danger">
             Company Description shold have only alphabets.
           </div>
         </div>
       </div>
       <div >
-        <ng-select class="mt-2" [items]="filed" bindLabel="name" [multiple]="true" appendTo="body" formControlName="selecttag" placeholder="Select Tag"></ng-select>
+        <ng-select class="mt-2" [items]="filed" bindLabel="name" [multiple]="true" appendTo="body" formControlName="selectTag" placeholder="Select Tag"></ng-select>
         <div
-          *ngIf="formValidation['selecttag'].invalid && (isSubmitted || formValidation['selecttag'].touched || formValidation['selecttag'].dirty)">
-          <div *ngIf="formValidation['selecttag'].errors && formValidation['selecttag'].errors['required']"
+          *ngIf="formValidation['selectTag'].invalid && (isSubmitted || formValidation['selectTag'].touched || formValidation['selectTag'].dirty)">
+          <div *ngIf="formValidation['selectTag'].errors && formValidation['selectTag'].errors['required']"
             class="text-danger">Company select tag is required.</div>
         </div>
       </div>

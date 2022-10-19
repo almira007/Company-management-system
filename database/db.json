@@ -2,9 +2,9 @@
   "company": [
     {
       "id": 1,
-      "companyname": "Almira shaikh",
-      "companydescription": "web develop",
-      "selecttag": [
+      "companyName": "Almira shaikh",
+      "companyDescription": "web develop",
+      "selectTag": [
         {
           "id": 2,
           "name": "HTML"
@@ -21,9 +21,9 @@
     },
     {
       "id": 2,
-      "companyname": "pooja patel",
-      "companydescription": "vvvccvv",
-      "selecttag": [
+      "companyName": "pooja patel",
+      "companyDescription": "vvvccvv",
+      "selectTag": [
         {
           "id": 2,
           "name": "HTML"
@@ -36,9 +36,9 @@
     },
     {
       "id": 3,
-      "companyname": "komal prazapati",
-      "companydescription": "dffgfgggvb",
-      "selecttag": [
+      "companyName": "komal prazapati",
+      "companyDescription": "dffgfgggvb",
+      "selectTag": [
         {
           "id": 2,
           "name": "HTML"
@@ -51,9 +51,9 @@
     },
     {
       "id": 4,
-      "companyname": "dev patel",
-      "companydescription": "fgsxvs",
-      "selecttag": [
+      "companyName": "dev patel",
+      "companyDescription": "fgsxvs",
+      "selectTag": [
         {
           "id": 2,
           "name": "HTML"
