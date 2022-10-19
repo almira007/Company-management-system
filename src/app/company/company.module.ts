@@ -11,6 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from '../shared/shared.module';
 import { CompanyCommunicationService } from './service/company-communication.service';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { CoreModule } from '../core/core.module';
+import { BreadcrumbService } from '../core/service/breadcrumb.service';
 
 
 
@@ -28,12 +30,12 @@ import { NgSelectModule } from '@ng-select/ng-select';
     SharedModule,
     FormsModule,
     NgSelectModule,
-    SharedModule
+    SharedModule,
+    CoreModule
   ],
   providers:[
     CompanyService,
     CompanyCommunicationService,
-   
    ]
 })
 export class CompanyModule { }
