@@ -3,11 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CoreModule } from './core/core.module';
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {  ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { CoreModule } from './core/core.module';
 
 
 @NgModule({
@@ -16,8 +17,9 @@ import { OverlayModule } from '@angular/cdk/overlay';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    BrowserAnimationsModule,
     CoreModule,
+    AppRoutingModule,
     NgbModule,
     ToastrModule.forRoot({
       "closeButton": true,
@@ -26,7 +28,6 @@ import { OverlayModule } from '@angular/cdk/overlay';
       "extendedTimeOut": 1000,
       "positionClass": "toast-top-center"
     }),
-    BrowserAnimationsModule,
     OverlayModule
     ],
   

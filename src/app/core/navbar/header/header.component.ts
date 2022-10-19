@@ -11,14 +11,15 @@ import { BreadcrumbService } from 'src/app/core/service/breadcrumb.service';
 export class HeaderComponent implements OnInit {
 
   public title!: string
-  constructor(private breadcrumb: BreadcrumbService)
+  constructor(public breadcrumbService: BreadcrumbService)
     {  
    }
 
   ngOnInit(): void {
     //breadcrumb using
      this.title = '';
-     this.breadcrumb.breadcrumb.subscribe(res => this.title = res);
+     this.breadcrumbService.breadcrumb.subscribe(res => {
+      this.title = res});
      console.log(this.title)
   }
 
