@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BreadcrumbService } from 'xng-breadcrumb';
+import { BreadcrumbService } from 'src/app/company/service/breadcrumb.service';
+
 
 @Component({
   selector: 'app-header',
@@ -9,16 +10,15 @@ import { BreadcrumbService } from 'xng-breadcrumb';
 export class HeaderComponent implements OnInit {
 
   public title!: string
-  constructor( 
-    private breadcrumb: BreadcrumbService ) 
-    {
+  constructor(private breadcrumb: BreadcrumbService)
+    {  
    }
 
   ngOnInit(): void {
     //breadcrumb using
-    this.title = ''
-    this.breadcrumb.breadcrumbs$.subscribe((res:any )=> this.title = res)
-    console.log(this.title);
+     this.title = '';
+     this.breadcrumb.breadcrumb.subscribe(res => this.title = res);
+     console.log(this.title)
   }
 
 }
