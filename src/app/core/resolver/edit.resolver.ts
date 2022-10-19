@@ -5,11 +5,22 @@ import {
   ActivatedRouteSnapshot
 } from '@angular/router';
 import { Observable, of } from 'rxjs';
+import { company } from 'src/app/company/model/company.model';
+import { CompanyService } from 'src/app/company/service/company.service';
 
 @Injectable()
-export class EditResolver implements Resolve<boolean> {
+export class EditResolver implements Resolve<company> {
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
-    return of(true);
+  constructor(private http: CompanyService){
+  }
+/**
+ * 
+ * @param route 
+ * @returns 
+ */
+  resolve(route: ActivatedRouteSnapshot): Observable<company> {
+    const id = route.params['id'];
+    console.log('company Id',id);
+    return this.http.getComapnyById(id);
   }
 }

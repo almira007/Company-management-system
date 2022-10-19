@@ -36,7 +36,7 @@ export class CompanyService {
 
   /**
    * Add new company
-   * @param user Get company bosy
+   * @param company Get company bosy
    * @returns comapny object
    */
   public addCompany(company: company): Observable<company> {
