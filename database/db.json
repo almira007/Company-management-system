@@ -2,8 +2,8 @@
   "company": [
     {
       "id": 9,
-      "companyname": "almira shaikhsssss",
-      "companydescription": "xsxsxxddd",
+      "companyname": "almira shaikhddd",
+      "companydescription": "xsxsxxddd ddd",
       "selecttag": [
         {
           "id": 1,
@@ -17,7 +17,7 @@
     },
     {
       "id": 10,
-      "companyname": "charvi sarangfg",
+      "companyname": "charvi saransssss",
       "companydescription": "web developwe",
       "selecttag": [
         {
@@ -27,6 +27,21 @@
         {
           "id": 3,
           "name": "QA"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "companyname": "hasan shaikh",
+      "companydescription": "ggvbxvbx",
+      "selecttag": [
+        {
+          "id": 2,
+          "name": "HTML"
+        },
+        {
+          "id": 4,
+          "name": "BA"
         }
       ]
     }

@@ -44,11 +44,11 @@ export class CompanyListComponent implements OnInit {
       this.companylist.push(response);
     });
 
-    // //update Record
-    // this.companyCommunicationService.updateRecord.subscribe((response: company) => {
-    //   const index = this.companylist.findIndex((res) => res.id === response.id);
-    //   this.companylist.splice(index, 1, response);
-    // })
+    //update Record
+    this.companyCommunicationService.updateRecord.subscribe((response: company) => {
+      const index = this.companylist.findIndex((res) => res.id === response.id);
+      this.companylist.splice(index, 1, response);
+    });
   }
 
   //getCompany data
@@ -59,15 +59,6 @@ export class CompanyListComponent implements OnInit {
   }
   //Delete the record
   public deleteCompanyData(item: company): void {
-    // var delBtn = confirm("Are you sure to delete ?");
-    // if (delBtn == true) {
-    //   this.companyService.deleteCompany(id).subscribe((result) => {
-    //     this.getCompany();
-    //     this.notification.showWarning('Data Deleted successfully','Message');
-
-    //   });
-    // }
-
     // Overlay config
     const overlayConfig: OverlayConfig = new OverlayConfig();
     overlayConfig.positionStrategy = this.overlay.position().global().centerHorizontally().centerVertically();
@@ -103,8 +94,8 @@ export class CompanyListComponent implements OnInit {
 
   
   // BreadCrumb 
-  redirectBreadEdit(name: string) {
-    this.breadcrumb.breadcrumb.next("Edit / " + name)
+  redirectBreadEdit(companyname: string) {
+    this.breadcrumb.breadcrumb.next("Edit / " + companyname)
   }
   
   redirectBreadAdd() {
