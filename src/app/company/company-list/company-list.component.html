@@ -9,8 +9,8 @@
 
       <input type="search" class="form-control" placeholder="Search..." [(ngModel)]="searchText ">
     </div>
-    <div class="container mt-3">
-      <div class="card shadow" style="width:400px">
+    <div class=" mt-3">
+      <div class="card shadow" style="width: 424px">
         <div class="card-body">
           <div class="d-flex align-items-center justify-content-between">
             <p>Logo</p>
@@ -18,12 +18,15 @@
             <p>Action</p>
           </div>
           <div>
+            <ng-container *ngIf="( companylist | filterRecord: searchText) as result">
             <div *ngFor="let item of companylist | filterRecord: searchText" class="d-flex align-items-center justify-content-between">
               <p class="circle border border-success rounded-circle cursor"><a
                   class="text-decoration-none">{{item.companyname | nameLogo}}</a></p>
               <p (click)="editComapny(item)"  (click)="redirectBreadEdit(item.companyname)">{{item.companyname | titlecase}}</p>
               <p><button class="btn btn-danger " (click)="deleteCompanyData(item)">x</button></p>
             </div>
+            <p *ngIf="result.length === 0" class="text-danger  no-record">No Record Found</p> 
+          </ng-container>
           </div>
         </div>
       </div>
