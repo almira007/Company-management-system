@@ -7,7 +7,8 @@ import { CompanyCommunicationService } from '../service/company-communication.se
 import { CompanyService } from '../service/company.service';
 import { ConformationComponent } from 'src/app/shared/component/conformation/conformation.component';
 import { ComponentPortal } from '@angular/cdk/portal';
-import { BreadcrumbService } from '../service/breadcrumb.service';
+import { BreadcrumbService } from 'src/app/core/service/breadcrumb.service';
+
 
 
 
@@ -101,5 +102,5 @@ export class CompanyListComponent implements OnInit {
   public redirectBreadEdit(companyname: string) {
    this.breadcrumb.breadcrumb.next(companyname)
   }
-  
+
 }
