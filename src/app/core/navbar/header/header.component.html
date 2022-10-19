@@ -1,14 +1,15 @@
 <nav class="d-flex w-100 flex-column bg-light p-2 border pt-2 border p-4 rounded">
   <div class="d-flex align-items-center">
-      <a class="nav-link">
-          <span class="bi bi-list me-3"></span>
-      </a>
-      <h4>Company</h4>
-      <div class="mx-4 brand">
-        <span class="breadcrumb">
-            <a href="" class="breadcrumb-item">company</a>
-            <a href="" class="breadcrumb-item">{{title}}</a>
-        </span>
+    <a class="nav-link">
+      <span class="bi bi-list me-3"></span>
+    </a>
+    <!-- brand name  -->
+    <div class="mx-4 brand">
+      <p class="m-0 fs-4">Company</p>
+      <span class="breadcrumb">
+        <a href="" class="breadcrumb-item text-black">company</a>
+        <a href="" class="breadcrumb-item text-secondary">{{title | titlecase}}</a>
+      </span>
     </div>
   </div>
 </nav>

@@ -10,6 +10,7 @@ import { ComponentPortal } from '@angular/cdk/portal';
 import { BreadcrumbService } from '../service/breadcrumb.service';
 
 
+
 @Component({
   selector: 'app-company-list',
   templateUrl: './company-list.component.html',
@@ -50,6 +51,7 @@ export class CompanyListComponent implements OnInit {
       this.companylist.splice(index, 1, response);
     });
   }
+ 
 
   //getCompany data
   getCompany() {
@@ -75,7 +77,7 @@ export class CompanyListComponent implements OnInit {
     componentRef.instance.confirm.subscribe((res) => {
       this.companyService.deleteCompany(item.id).subscribe((result) => {
         this.getCompany();
-        this.notification.showWarning('Data Deleted successfully', 'Message'); 
+        this.notification.showWarning('Data Deleted successfully', 'Message');
       });
       this.overlayRef.detach();
       console.log(res);
@@ -85,20 +87,19 @@ export class CompanyListComponent implements OnInit {
       console.log(res);
       this.overlayRef.detach();
     });
-
   }
 
   public editComapny(company: company): void {
     this.router.navigate(['company/edit', company.id]);
   }
 
-  
   // BreadCrumb 
-  redirectBreadEdit(companyname: string) {
-    this.breadcrumb.breadcrumb.next("Edit / " + companyname)
+  public redirectBreadAdd() { 
+    this.breadcrumb.breadcrumb.next("Add");
+  }
+
+  public redirectBreadEdit(companyname: string) {
+   this.breadcrumb.breadcrumb.next(companyname)
   }
   
-  redirectBreadAdd() {
-    this.breadcrumb.breadcrumb.next("Add")
-  }
 }
