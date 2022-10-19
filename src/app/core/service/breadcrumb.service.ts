@@ -6,9 +6,9 @@ import { Subject } from 'rxjs';
 })
 export class BreadcrumbService {
 
-  public breadcrumb: Subject<string>
+  public breadcrumb: Subject<string>;
 
   constructor() { 
     this.breadcrumb = new Subject();
-  }
+  }   
 }

@@ -1,3 +1,72 @@
 {
-  "company": []
+  "company": [
+    {
+      "id": 1,
+      "companyname": "Almira shaikh",
+      "companydescription": "web develop",
+      "selecttag": [
+        {
+          "id": 2,
+          "name": "HTML"
+        },
+        {
+          "id": 1,
+          "name": "Web"
+        },
+        {
+          "id": 5,
+          "name": "Angular"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "companyname": "pooja patel",
+      "companydescription": "vvvccvv",
+      "selecttag": [
+        {
+          "id": 2,
+          "name": "HTML"
+        },
+        {
+          "id": 4,
+          "name": "BA"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "companyname": "komal prazapati",
+      "companydescription": "dffgfgggvb",
+      "selecttag": [
+        {
+          "id": 2,
+          "name": "HTML"
+        },
+        {
+          "id": 1,
+          "name": "Web"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "companyname": "dev patel",
+      "companydescription": "fgsxvs",
+      "selecttag": [
+        {
+          "id": 2,
+          "name": "HTML"
+        },
+        {
+          "id": 4,
+          "name": "BA"
+        },
+        {
+          "id": 5,
+          "name": "Angular"
+        }
+      ]
+    }
+  ]
 }

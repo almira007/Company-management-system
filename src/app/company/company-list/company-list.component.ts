@@ -7,7 +7,7 @@ import { CompanyCommunicationService } from '../service/company-communication.se
 import { CompanyService } from '../service/company.service';
 import { ConformationComponent } from 'src/app/shared/component/conformation/conformation.component';
 import { ComponentPortal } from '@angular/cdk/portal';
-import { BreadcrumbService } from 'src/app/core/service/breadcrumb.service';
+import { BreadcrumbService } from '../../core/service/breadcrumb.service';
 
 
 
@@ -33,7 +33,7 @@ export class CompanyListComponent implements OnInit {
     private companyCommunicationService: CompanyCommunicationService,
     private notification: NotificationServiceService,
     private overlay: Overlay,
-    private breadcrumb: BreadcrumbService
+    private breadcrumbService: BreadcrumbService
   ) {
     this.companylist = [];
   }
@@ -96,11 +96,11 @@ export class CompanyListComponent implements OnInit {
 
   // BreadCrumb 
   public redirectBreadAdd() { 
-    this.breadcrumb.breadcrumb.next("Add");
+    this.breadcrumbService.breadcrumb.next('Add');
   }
 
   public redirectBreadEdit(companyname: string) {
-   this.breadcrumb.breadcrumb.next(companyname)
+   this.breadcrumbService.breadcrumb.next(companyname)
   }
 
 }
