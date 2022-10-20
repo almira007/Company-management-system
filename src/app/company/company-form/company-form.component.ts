@@ -14,19 +14,21 @@ import { CompanyService } from '../service/company.service';
 })
 export class CompanyFormComponent implements OnInit {
 
-  //variable decration
+  /**
+   * Variable decration
+ */
   public isAddMode: boolean;
   private id!: string;
 
   //company form 
   public companyForm: FormGroup;
+
   //for validation on submit
   public isSubmitted: boolean;
 
-
-
   //only charecter patten
   private onlyCharecter: string = '^[A-Za-z\s]+$';
+
   //Only alphabets patten
   private onlyalphabets: string = '^[a-zA-Z \-\']+';
 
@@ -39,7 +41,6 @@ export class CompanyFormComponent implements OnInit {
     { id: 5, name: 'Angular' },
   ];
 
-  //inject
   constructor(
     private route: ActivatedRoute,
     private fb: FormBuilder,
@@ -49,8 +50,10 @@ export class CompanyFormComponent implements OnInit {
     private activatedRoute: ActivatedRoute
   ) {
     this.isAddMode = true;
-    this.isSubmitted = false
-
+    this.isSubmitted = false;
+    /**
+     * formbuilder
+     */
     this.companyForm = this.fb.group({
       id: [],
       companyName: ['', [Validators.required]],
@@ -60,7 +63,9 @@ export class CompanyFormComponent implements OnInit {
 
   }
 
-  //Validation function
+  /**
+   * getter function
+   */
   get formValidation(): { [key: string]: AbstractControl } {
     return this.companyForm.controls;
   }
@@ -68,24 +73,34 @@ export class CompanyFormComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     this.isAddMode = !this.id;
-
-     //edit Data
+    /**
+     * patch value using resolver
+     */
     this.activatedRoute.data.subscribe((response) => {
       this.companyForm.patchValue(response['data']);
     });
   }
 
-  //submit the data
+  /**
+   * save data 
+   * return companyForm value
+   */
   public saveCompany(): void {
     this.isSubmitted = true;
     if (this.companyForm.valid) {
       this.isSubmitted = false;
       if (this.companyForm.value.id) {
         this.updateCompany();
+        /**
+         * using toaster
+        */
         this.notification.showInfo("This is Edit Data", "Data Add sucessfully")
       }
       else {
         this.addCompany();
+        /**
+        * using toaster
+       */
         this.notification.showSuccess("Data shown successfully !!", "Data Add sucessfully");
       }
       this.isSubmitted = false;
@@ -93,27 +108,38 @@ export class CompanyFormComponent implements OnInit {
 
     }
     else {
+      /**
+        * using toaster
+       */
       this.notification.showError('Something Went Wrong', 'Message');
     }
   }
 
-  //reset button
+  /**
+   * for reset
+   */
   public resetCompany(): void {
     this.isSubmitted = false;
     this.companyForm.reset();
   }
 
-  //add company data
+  /**
+   * Add companydata 
+   * return companyForm value using subject
+   */
   public addCompany(): void {
     this.companyService.addCompany(this.companyForm.value).subscribe(response => {
       this.companyCommunicationService.addCompany.next(response);
     });
   }
 
-  //updated record add
+  /**
+   * Update Data 
+   * return formValue using subject
+   */
   public updateCompany(): void {
     this.companyService.updateCompany(this.companyForm.value).subscribe((response) => {
-    this.companyCommunicationService.updateRecord.next(response);
+      this.companyCommunicationService.updateRecord.next(response);
     });
   }
 }

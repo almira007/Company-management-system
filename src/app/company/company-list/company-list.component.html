@@ -24,7 +24,7 @@
               <p (click)="editComapny(item)">{{item.companyName | titlecase}}</p>
               <p><button class="btn btn-danger " (click)="deleteCompanyData(item)">x</button></p>
             </div>
-            <p *ngIf="result.length === 0" class="text-danger  no-record">No Record Found</p> 
+            <p *ngIf="result.length === 0" class="text-danger no-record">No Record Found</p> 
           </ng-container>
           </div>
         </div>
