@@ -10,6 +10,11 @@ export class CompanyCommunicationService {
 
   public updateRecord: Subject<Company>;
 
+  
+  /**
+   * using subject
+   * @param Company 
+   */
   constructor() { 
     this.addCompany = new Subject();
     this.updateRecord = new Subject();

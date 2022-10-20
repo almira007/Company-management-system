@@ -12,6 +12,9 @@ export class BreadcrumbService {
     this.breadCrumb = new Subject();
   }
 
+  /**
+  * setdata 
+  */
   public setData(id: number, name: string) {
     this.breadCrumb.next({ id: id, name: name });
   }

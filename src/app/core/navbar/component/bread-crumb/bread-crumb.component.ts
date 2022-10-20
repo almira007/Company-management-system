@@ -14,7 +14,9 @@ export class BreadCrumbComponent implements OnInit {
 
   
   ngOnInit(): void {
-    //breadcrumb using
+    /**
+    * breadcrube using subject
+    */
     this.breadcrumbService.breadCrumb.subscribe((res) => {
       this.data = res
     });

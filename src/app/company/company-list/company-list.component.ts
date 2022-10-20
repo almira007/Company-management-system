@@ -21,6 +21,9 @@ export class CompanyListComponent implements OnInit {
 
   @Input() public dataList: any;
 
+  /**
+   * store model data in companydata
+   */
   public companyList: Company[]
 
   public searchText = '';
@@ -41,26 +44,37 @@ export class CompanyListComponent implements OnInit {
   ngOnInit(): void {
     this.getCompany()
 
-    //add data
+
+    /**
+     * add the data using subject
+     */
     this.companyCommunicationService.addCompany.subscribe((response: Company) => {
       this.companyList.push(response);
     });
 
-    //update Record
+    /**
+    * update record data using subject
+    */
     this.companyCommunicationService.updateRecord.subscribe((response: Company) => {
       const index = this.companyList.findIndex((res) => res.id === response.id);
       this.companyList.splice(index, 1, response);
     });
   }
 
-
-  //getCompany data
+  /**
+    * for getting data from databaset
+    */
   getCompany() {
     this.companyService.getCompany().subscribe((res) => {
       this.companyList = res;
     });
   }
-  //Delete the record
+
+  /**
+    * delete the record using overlay
+     * @param id 
+    * return company
+    */
   public deleteCompanyData(item: Company): void {
     // Overlay config
     const overlayConfig: OverlayConfig = new OverlayConfig();
@@ -72,12 +86,17 @@ export class CompanyListComponent implements OnInit {
     const portal = new ComponentPortal(ConformationComponent);
     // porat attched
     const componentRef = this.overlayRef.attach(portal)
-
+    /**
+      * set a instance in name
+    */
     componentRef.instance.name = item.companyName;
 
     componentRef.instance.confirm.subscribe((res) => {
       this.companyService.deleteCompany(item.id).subscribe((result) => {
         this.getCompany();
+        /**
+        * using toaster
+       */
         this.notification.showWarning('Data Deleted successfully', 'Message');
       });
       this.overlayRef.detach();
@@ -90,7 +109,9 @@ export class CompanyListComponent implements OnInit {
     });
   }
 
-  // BreadCrumb 
+  /**
+    * breadcrumb using subject
+    */
   public redirectAdd(): void {
     this.breadcrumbService.setData(0, 'add');
   }
