@@ -1,13 +1,14 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { Company } from 'src/app/company/model/company.model';
 
 @Pipe({
   name: 'filterRecord'
 })
 export class FilterRecordPipe implements PipeTransform {
 
-  transform(items: any[], searchText: string): any[] {
+  transform(items: Company[], searchText: string): Company[] {
     if (!items) {
-      return [];
+      return items;
     }
     if (!searchText) {
       return items;
@@ -15,8 +16,10 @@ export class FilterRecordPipe implements PipeTransform {
 
     searchText = searchText.toLocaleLowerCase();
 
-    return items.filter(it => {
-      return it.companyName.toLocaleLowerCase().includes(searchText);
+    return items.filter((it) => {
+      const data = JSON.stringify(it).toLocaleLowerCase().includes(searchText);
+      return data;
     });
   }
 }
+    
