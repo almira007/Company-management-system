@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { NotificationServiceService } from 'src/app/shared/notification-service.service';
-import { BreadcrumbService } from 'xng-breadcrumb';
 import { Company } from '../model/company.model';
 import { CompanyCommunicationService } from '../service/company-communication.service';
 import { CompanyService } from '../service/company.service';

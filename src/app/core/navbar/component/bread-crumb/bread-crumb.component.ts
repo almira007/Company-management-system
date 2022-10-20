@@ -1,20 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { BreadcrumbService } from 'src/app/core/service/breadcrumb.service';
 
-
-
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  selector: 'app-bread-crumb',
+  templateUrl: './bread-crumb.component.html',
+  styleUrls: ['./bread-crumb.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class BreadCrumbComponent implements OnInit {
 
   public data!: any;
 
-  constructor(public breadcrumbService: BreadcrumbService) {
-  }
+  constructor(public breadcrumbService: BreadcrumbService) { }
 
+  
   ngOnInit(): void {
     //breadcrumb using
     this.breadcrumbService.breadCrumb.subscribe((res) => {

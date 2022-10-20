@@ -1,4 +1,4 @@
-<div class="p-2 h-100 navbar-light bg-light pt-2 border p-4 rounded">
+<div class="p-2 h-100 navbar-light bg-background pt-2 border p-4 rounded">
   <section class="d-flex h-100 flex-column pt-2 g-4 py-1 px-2">
     <div class="d-flex me-2 justify-content-between">
       <span class="me-5">Company</span>
@@ -20,8 +20,7 @@
           <div>
             <ng-container *ngIf="( companyList | filterRecord: searchText) as result">
             <div *ngFor="let item of companyList | filterRecord: searchText" class="d-flex align-items-center justify-content-between">
-              <p class="circle border border-success rounded-circle cursor"><a
-                  class="text-decoration-none">{{item.companyName | nameLogo}}</a></p>
+              <p class="circle border rounded-circle cursor logo-background">{{item.companyName | nameLogo}}</p>
               <p (click)="editComapny(item)">{{item.companyName | titlecase}}</p>
               <p><button class="btn btn-danger " (click)="deleteCompanyData(item)">x</button></p>
             </div>

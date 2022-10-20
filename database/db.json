@@ -2,7 +2,7 @@
   "company": [
     {
       "id": 1,
-      "companyName": "Almira shaikh",
+      "companyName": "Almira shaikhddd",
       "companyDescription": "web develop",
       "selectTag": [
         {
@@ -65,6 +65,21 @@
         {
           "id": 5,
           "name": "Angular"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "companyName": "chirag",
+      "companyDescription": "ghghbndc",
+      "selectTag": [
+        {
+          "id": 2,
+          "name": "HTML"
+        },
+        {
+          "id": 3,
+          "name": "QA"
         }
       ]
     }
