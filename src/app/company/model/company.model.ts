@@ -3,4 +3,5 @@ export class Company{
     public companyName!:string;
     public companyDescription?:string;
     public selectTag?:string;
+    public image?:string;
 }

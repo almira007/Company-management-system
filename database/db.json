@@ -82,6 +82,34 @@
           "name": "QA"
         }
       ]
+    },
+    {
+      "id": 6,
+      "companyName": "hasan",
+      "companyDescription": "web developer",
+      "selectTag": [
+        {
+          "id": 2,
+          "name": "HTML"
+        },
+        {
+          "id": 3,
+          "name": "QA"
+        }
+      ],
+      "image": "C:\\fakepath\\IMG-20220205-WA0025.jpg"
+    },
+    {
+      "id": 7,
+      "companyName": "juned",
+      "companyDescription": "web dvelopwer",
+      "selectTag": [
+        {
+          "id": 5,
+          "name": "Angular"
+        }
+      ],
+      "image": "C:\\fakepath\\rptProvisionalGradeSheet (5).pdf"
     }
   ]
 }

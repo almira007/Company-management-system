@@ -19,6 +19,7 @@ export class CompanyFormComponent implements OnInit {
  */
   public isAddMode: boolean;
   private id!: string;
+  public url:any;
 
   //company form 
   public companyForm: FormGroup;
@@ -58,7 +59,8 @@ export class CompanyFormComponent implements OnInit {
       id: [],
       companyName: ['', [Validators.required]],
       companyDescription: ['', [Validators.required, Validators.pattern(this.onlyalphabets)]],
-      selectTag: ['', Validators.required]
+      selectTag: ['', Validators.required],
+      image: []
     });
 
   }
@@ -81,6 +83,20 @@ export class CompanyFormComponent implements OnInit {
     });
   }
 
+  /**
+     * image upload
+     */
+  public onSelectFile(event:any) {
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+
+      reader.readAsDataURL(event.target.files[0]); // read file as data url
+
+      reader.onload = (event) => { // called once readAsDataURL is completed
+        this.url = event?.target?.result;
+      }
+    }
+  }
   /**
    * save data 
    * return companyForm value
