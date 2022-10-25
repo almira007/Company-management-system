@@ -46,7 +46,8 @@
       </div>
 
       <div class="mb-3 mt-3">
-        <input type="file" class="file form-control">
+        <img [src]="url" height="200"> <br/>
+        <input type="file" class="file form-control" (change)="onSelectFile($event)" formControlName="image">
       </div>
       <div class="mt-3 d-flex justify-content-between">
         <div></div>
