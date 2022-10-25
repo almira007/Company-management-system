@@ -60,7 +60,7 @@ export class CompanyFormComponent implements OnInit {
       companyName: ['', [Validators.required]],
       companyDescription: ['', [Validators.required, Validators.pattern(this.onlyalphabets)]],
       selectTag: ['', Validators.required],
-      image: []
+      image: ['', Validators.required]
     });
 
   }
