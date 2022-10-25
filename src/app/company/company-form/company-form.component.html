@@ -4,7 +4,7 @@
 
 <div class="p-4">
   <div>
-    <form class="row pt-2 border p-4 rounded"  [formGroup]="companyForm" (ngSubmit)="saveCompany()">
+    <form class="row pt-3 border p-4 rounded"  [formGroup]="companyForm" (ngSubmit)="saveCompany()">
       <div class="mb-3 col-12">
         <input type="text" class="form-control" formControlName="companyName" placeholder="Company Name"
           [ngClass]="{'is-invalid' : formValidation['companyName'].invalid && (isSubmitted || formValidation['companyName'].touched || formValidation['companyName'].dirty),
@@ -21,7 +21,7 @@
           </div> -->
         </div>
       </div>
-      <div class="form-floating">
+      <div class="form-floating mb-3">
         <textarea class="form-control" style="height: 100px" formControlName="companyDescription"
           placeholder="Company Description"
           [ngClass]="{'is-invalid' : formValidation['companyDescription'].invalid && (isSubmitted || formValidation['companyDescription'].touched || formValidation['companyDescription'].dirty),
@@ -36,18 +36,25 @@
           </div>
         </div>
       </div>
-      <div >
+      <div>
         <ng-select class="mt-2" [items]="filed" bindLabel="name" [multiple]="true" appendTo="body" formControlName="selectTag" placeholder="Select Tag"></ng-select>
-        <div
+        <div class="invalid-feedback"
           *ngIf="formValidation['selectTag'].invalid && (isSubmitted || formValidation['selectTag'].touched || formValidation['selectTag'].dirty)">
           <div *ngIf="formValidation['selectTag'].errors && formValidation['selectTag'].errors['required']"
             class="text-danger">Company select tag is required.</div>
         </div>
       </div>
 
-      <div class="mb-3 mt-3">
+      <div class="mb-3">
         <img [src]="url" height="200"> <br/>
-        <input type="file" class="file form-control" (change)="onSelectFile($event)" formControlName="image">
+        <input type="file" class="file form-control" (change)="onSelectFile($event)" formControlName="image"
+        [ngClass]="{'is-invalid' : formValidation['image'].invalid && (isSubmitted || formValidation['image'].touched || formValidation['image'].dirty),
+          'is-valid' : formValidation['image'].valid && (isSubmitted || formValidation['image'].touched || formValidation['image'].dirty)}">
+        <div class="invalid-feedback"
+        *ngIf="formValidation['image'].invalid && (isSubmitted || formValidation['image'].touched || formValidation['image'].dirty)">
+        <div *ngIf="formValidation['image'].errors && formValidation['image'].errors['required']"
+          class="text-danger">image upload and file is required.</div>
+      </div>
       </div>
       <div class="mt-3 d-flex justify-content-between">
         <div></div>

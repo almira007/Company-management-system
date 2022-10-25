@@ -110,6 +110,18 @@
         }
       ],
       "image": "C:\\fakepath\\rptProvisionalGradeSheet (5).pdf"
+    },
+    {
+      "id": 8,
+      "companyName": "hiral",
+      "companyDescription": "html",
+      "selectTag": [
+        {
+          "id": 1,
+          "name": "Web"
+        }
+      ],
+      "image": "C:\\fakepath\\IMG-20220306-WA0039.jpg"
     }
   ]
 }
