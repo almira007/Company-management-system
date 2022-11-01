@@ -1,7 +1,9 @@
 import { TitleCasePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import { BreadcrumbService } from 'src/app/core/service/breadcrumb.service';
 import { NotificationServiceService } from 'src/app/shared/notification-service.service';
 import { Company } from '../model/company.model';
 import { CompanyCommunicationService } from '../service/company-communication.service';
@@ -19,7 +21,7 @@ export class CompanyFormComponent implements OnInit {
  */
   public isAddMode: boolean;
   private id!: string;
-  public url:any;
+  public url: any;
 
   //company form 
   public companyForm: FormGroup;
@@ -32,6 +34,15 @@ export class CompanyFormComponent implements OnInit {
 
   //Only alphabets patten
   private onlyalphabets: string = '^[a-zA-Z \-\']+';
+
+  //image variable
+  public imageString: any;
+  public imagePath: any;
+  public imageFile!: File;
+  public isImagevalue: boolean;
+  public company_name!: string;
+  public companyId: string;
+
 
   //tags decaration 
   filed = [
@@ -48,8 +59,7 @@ export class CompanyFormComponent implements OnInit {
     private companyService: CompanyService,
     private companyCommunicationService: CompanyCommunicationService,
     private notification: NotificationServiceService,
-    private activatedRoute: ActivatedRoute
-  ) {
+    private activatedRoute: ActivatedRoute) {
     this.isAddMode = true;
     this.isSubmitted = false;
     /**
@@ -60,9 +70,22 @@ export class CompanyFormComponent implements OnInit {
       companyName: ['', [Validators.required]],
       companyDescription: ['', [Validators.required, Validators.pattern(this.onlyalphabets)]],
       selectTag: ['', Validators.required],
-      image: ['', Validators.required]
+      companyLogo: ['', Validators.required],
+      companyPath: [''],
     });
 
+    this.companyId = "";
+    this.imageString = '';
+    this.imagePath = '';
+    this.isImagevalue = false;
+
+
+    this.activatedRoute.data.subscribe((data) => {
+      console.log(data)
+      this.companyForm.patchValue(data['Company']);
+      this.imageString = this.companyForm.get('companyPath')?.value
+
+    });
   }
 
   /**
@@ -78,6 +101,7 @@ export class CompanyFormComponent implements OnInit {
     /**
      * patch value using resolver
      */
+
     this.activatedRoute.data.subscribe((response) => {
       this.companyForm.patchValue(response['data']);
     });
@@ -86,16 +110,16 @@ export class CompanyFormComponent implements OnInit {
   /**
      * image upload
      */
-  public onSelectFile(event:any) {
-    if (event.target.files && event.target.files[0]) {
-      var reader = new FileReader();
-
-      reader.readAsDataURL(event.target.files[0]); // read file as data url
-
-      reader.onload = (event) => { // called once readAsDataURL is completed
-        this.url = event?.target?.result;
-      }
+  public imageUploaded(event: any) {
+    this.imageFile = event.target.files[0];
+    console.log(this.imageFile)
+    const reader = new FileReader();
+    reader.readAsDataURL(this.imageFile);
+    reader.onload = () => {
+      this.imageString = reader.result;
+      console.log(this.imageString)
     }
+
   }
   /**
    * save data 
@@ -121,7 +145,8 @@ export class CompanyFormComponent implements OnInit {
       }
       this.isSubmitted = false;
       this.resetCompany();
-
+      this.isImagevalue = false;
+      this.isSubmitted = false;
     }
     else {
       /**
@@ -144,6 +169,7 @@ export class CompanyFormComponent implements OnInit {
    * return companyForm value using subject
    */
   public addCompany(): void {
+    this.companyForm.controls['companyPath'].setValue(this.imageString)
     this.companyService.addCompany(this.companyForm.value).subscribe(response => {
       this.companyCommunicationService.addCompany.next(response);
     });
@@ -154,6 +180,7 @@ export class CompanyFormComponent implements OnInit {
    * return formValue using subject
    */
   public updateCompany(): void {
+    this.companyForm.controls['companyPath'].setValue(this.imageString)
     this.companyService.updateCompany(this.companyForm.value).subscribe((response) => {
       this.companyCommunicationService.updateRecord.next(response);
     });

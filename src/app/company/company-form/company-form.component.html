@@ -1,69 +1,73 @@
 <div class="p-2 navbar-light bg-background h-100 pt-2 border p-4 rounded">
-<h1 *ngIf="isAddMode">Add Company</h1>
-<h1 *ngIf="!isAddMode">Edit Company</h1>
+  <h1 *ngIf="isAddMode">Add Company</h1>
+  <h1 *ngIf="!isAddMode">Edit Company</h1>
 
-<div class="p-4">
-  <div>
-    <form class="row pt-3 border p-4 rounded"  [formGroup]="companyForm" (ngSubmit)="saveCompany()">
-      <div class="mb-3 col-12">
-        <input type="text" class="form-control" formControlName="companyName" placeholder="Company Name"
-          [ngClass]="{'is-invalid' : formValidation['companyName'].invalid && (isSubmitted || formValidation['companyName'].touched || formValidation['companyName'].dirty),
+  <div class="p-4">
+    <div>
+      <form class="row pt-3 border p-4 rounded" [formGroup]="companyForm" (ngSubmit)="saveCompany()">
+        <div class="mb-3 col-12">
+          <input type="text" class="form-control" formControlName="companyName" placeholder="Company Name"
+            [ngClass]="{'is-invalid' : formValidation['companyName'].invalid && (isSubmitted || formValidation['companyName'].touched || formValidation['companyName'].dirty),
         'is-valid' : formValidation['companyName'].valid && (isSubmitted || formValidation['companyName'].touched || formValidation['companyName'].dirty)}">
-        <div class="invalid-feedback"
-          *ngIf="formValidation['companyName'].invalid && (isSubmitted || formValidation['companyName'].touched || formValidation['companyName'].dirty)">
-          <div *ngIf="formValidation['companyName'].errors && formValidation['companyName'].errors['required']"
-            class="text-danger">Company Name is required.</div>
-          <!-- <div *ngIf="formValidation['companyname'].errors?.['minlength']" class="text-danger">
+          <div class="invalid-feedback"
+            *ngIf="formValidation['companyName'].invalid && (isSubmitted || formValidation['companyName'].touched || formValidation['companyName'].dirty)">
+            <div *ngIf="formValidation['companyName'].errors && formValidation['companyName'].errors['required']"
+              class="text-danger">Company Name is required.</div>
+            <!-- <div *ngIf="formValidation['companyname'].errors?.['minlength']" class="text-danger">
             Company Name shold have minimun 3 Characters.
           </div> -->
-          <!-- <div *ngIf="formValidation['companyname'].errors?.['pattern']" class="text-danger">
+            <!-- <div *ngIf="formValidation['companyname'].errors?.['pattern']" class="text-danger">
             Company Name shold have only Characters.
           </div> -->
-        </div>
-      </div>
-      <div class="form-floating mb-3">
-        <textarea class="form-control" style="height: 100px" formControlName="companyDescription"
-          placeholder="Company Description"
-          [ngClass]="{'is-invalid' : formValidation['companyDescription'].invalid && (isSubmitted || formValidation['companyDescription'].touched || formValidation['companyDescription'].dirty),
-          'is-valid' : formValidation['companyDescription'].valid && (isSubmitted || formValidation['companyDescription'].touched || formValidation['companyDescription'].dirty)}"></textarea>
-        <div  class="invalid-feedback"
-          *ngIf="formValidation['companyDescription'].invalid && (isSubmitted || formValidation['companyDescription'].touched || formValidation['companyDescription'].dirty)">
-          <div
-            *ngIf="formValidation['companyDescription'].errors && formValidation['companyDescription'].errors['required']"
-            class="text-danger">Company Description is required.</div>
-          <div *ngIf="formValidation['companyDescription'].errors?.['pattern']" class="text-danger">
-            Company Description shold have only alphabets.
           </div>
         </div>
-      </div>
-      <div>
-        <ng-select class="mt-2" [items]="filed" bindLabel="name" [multiple]="true" appendTo="body" formControlName="selectTag" placeholder="Select Tag"></ng-select>
-        <div class="invalid-feedback"
-          *ngIf="formValidation['selectTag'].invalid && (isSubmitted || formValidation['selectTag'].touched || formValidation['selectTag'].dirty)">
-          <div *ngIf="formValidation['selectTag'].errors && formValidation['selectTag'].errors['required']"
-            class="text-danger">Company select tag is required.</div>
+        <div class="form-floating mb-3">
+          <textarea class="form-control" style="height: 100px" formControlName="companyDescription"
+            placeholder="Company Description"
+            [ngClass]="{'is-invalid' : formValidation['companyDescription'].invalid && (isSubmitted || formValidation['companyDescription'].touched || formValidation['companyDescription'].dirty),
+          'is-valid' : formValidation['companyDescription'].valid && (isSubmitted || formValidation['companyDescription'].touched || formValidation['companyDescription'].dirty)}"></textarea>
+          <div class="invalid-feedback"
+            *ngIf="formValidation['companyDescription'].invalid && (isSubmitted || formValidation['companyDescription'].touched || formValidation['companyDescription'].dirty)">
+            <div
+              *ngIf="formValidation['companyDescription'].errors && formValidation['companyDescription'].errors['required']"
+              class="text-danger">Company Description is required.</div>
+            <div *ngIf="formValidation['companyDescription'].errors?.['pattern']" class="text-danger">
+              Company Description shold have only alphabets.
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div class="mb-3">
-        <img [src]="url" height="200"> <br/>
-        <input type="file" class="file form-control" (change)="onSelectFile($event)" formControlName="image"
-        [ngClass]="{'is-invalid' : formValidation['image'].invalid && (isSubmitted || formValidation['image'].touched || formValidation['image'].dirty),
-          'is-valid' : formValidation['image'].valid && (isSubmitted || formValidation['image'].touched || formValidation['image'].dirty)}">
-        <div class="invalid-feedback"
-        *ngIf="formValidation['image'].invalid && (isSubmitted || formValidation['image'].touched || formValidation['image'].dirty)">
-        <div *ngIf="formValidation['image'].errors && formValidation['image'].errors['required']"
-          class="text-danger">image upload and file is required.</div>
-      </div>
-      </div>
-      <div class="mt-3 d-flex justify-content-between">
-        <div></div>
         <div>
-          <button type="reset" class="btn btn-cancle me-2" (click)="resetCompany()">Cancle</button>
-          <button type="submit" class="btn btn-save text-white">Save</button>
+          <ng-select class="mt-2" [items]="filed" bindLabel="name" [multiple]="true" appendTo="body"
+            formControlName="selectTag" placeholder="Select Tag"></ng-select>
+          <div class="invalid-feedback"
+            *ngIf="formValidation['selectTag'].invalid && (isSubmitted || formValidation['selectTag'].touched || formValidation['selectTag'].dirty)">
+            <div *ngIf="formValidation['selectTag'].errors && formValidation['selectTag'].errors['required']"
+              class="text-danger">Company select tag is required.</div>
+          </div>
         </div>
-      </div>
-    </form>
+
+        <div class="mb-3">
+          <img [src]="url" height="200"> <br />
+          <input type="file" class="file form-control" (change)="imageUploaded($event)" id="uplaod"
+            formControlName="companyLogo"
+            [ngClass]="{'is-invalid' : formValidation['companyLogo'].invalid && (isSubmitted || formValidation['companyLogo'].touched || formValidation['companyLogo'].dirty),
+          'is-valid' : formValidation['companyLogo'].valid && (isSubmitted || formValidation['companyLogo'].touched || formValidation['companyLogo'].dirty)}">
+          <div class="invalid-feedback"
+            *ngIf="formValidation['companyLogo'].invalid && (isSubmitted || formValidation['companyLogo'].touched || formValidation['companyLogo'].dirty)">
+            <div *ngIf="formValidation['companyLogo'].errors && formValidation['companyLogo'].errors['required']"
+              class="text-danger">image upload and file is required.</div>
+          </div>
+        </div>
+        <img *ngIf="imageString" [src]="imageString" height="100" width="100" alt="Logo">
+
+        <div class="mt-3 d-flex justify-content-between">
+          <div></div>
+          <div>
+            <button type="reset" class="btn btn-cancle me-2" (click)="resetCompany()">Cancle</button>
+            <button type="submit" class="btn btn-save text-white">Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
-</div>
 </div>

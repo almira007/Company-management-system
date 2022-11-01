@@ -1,7 +1,9 @@
-export class Company{
-    public id!:number;
-    public companyName!:string;
-    public companyDescription?:string;
-    public selectTag?:string;
-    public image?:string;
+export class Company {
+    public id!: number;
+    public companyName!: string;
+    public companyDescription!: string;
+    public selectTag!: string;
+    public image!: string;
+    public companyLogo!: string;
+    public companyPath!: any
 }
